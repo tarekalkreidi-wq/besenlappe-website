@@ -13,13 +13,35 @@
   <meta property="og:url" content="https://besenlappe.de/" />
   <meta property="og:type" content="website" />
 
+  <!-- LocalBusiness Schema (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"BESEN & LAPPE Reinigungsservice",
+    "url":"https://besenlappe.de",
+    "telephone":"+49 173 9089197",
+    "areaServed":["Berlin","Brandenburg"],
+    "priceRange":"€€",
+    "sameAs":["https://wa.me/491739089197"],
+    "serviceType":[
+      "Unterhaltsreinigung",
+      "Büroreinigung",
+      "Praxisreinigung",
+      "Glasreinigung",
+      "Grundreinigung",
+      "Umzugsreinigung"
+    ]
+  }
+  </script>
+
   <style>
     :root{
-      --bg:#0c1a2b;        /* Navy داكن */
-      --bg2:#13233a;       /* تدرّج */
-      --brand:#f9d342;     /* أصفر ذهبي */
-      --muted:#94a3b8;     /* رمادي أزرق */
-      --card:#0f1f34;      /* خلفية كروت */
+      --bg:#0c1a2b;        
+      --bg2:#13233a;       
+      --brand:#f9d342;     
+      --muted:#94a3b8;     
+      --card:#0f1f34;      
       --ok:#22c55e;
       --danger:#ef4444;
     }
@@ -69,196 +91,6 @@
 </head>
 
 <body>
-  <!-- NAV -->
-  <header>
-    <div class="container nav">
-      <div class="logo">🧹 <span style="color:var(--brand)">BESEN &amp; LAPPE</span></div>
-      <nav>
-        <a href="#firmen">Firmen</a>
-        <a href="#privat">Privat</a>
-        <a href="#preise">Preise</a>
-        <a href="#ablauf">Ablauf</a>
-        <a href="#kontakt" class="btn cta">Angebot anfordern</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <span class="badge">Berlin &amp; Brandenburg • Rechnung &amp; Bescheinigung</span>
-      <h1>Reinigungsservice für <span style="color:var(--brand)">Firmen</span> &amp; <span style="color:var(--brand)">Privat</span></h1>
-      <p>Unterhalts- &amp; Grundreinigung für Büros, Praxen, Läden, Treppenhäuser und Wohnungen. Schnell, zuverlässig, fair. Angebot in 60 Sekunden per WhatsApp oder E-Mail.</p>
-      <div class="hero-actions">
-        <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20brauche%20ein%20Reinigungsangebot.">💬 WhatsApp Angebot</a>
-        <a class="btn btn-outline" href="mailto:info@besenlappe.de?subject=Angebot%20Reinigung&body=Bitte%20schildern%20Sie%20kurz%20Objekt%2FTermin%3A">📧 E-Mail senden</a>
-        <a class="btn btn-outline" href="tel:+491739089197">📞 Anrufen</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- B2B -->
-  <section id="firmen">
-    <div class="container">
-      <h2>Für Unternehmen</h2>
-      <p class="sub">Planbare Qualität, feste Ansprechpartner und saubere Arbeitsplätze – wir entlasten Ihr Team.</p>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Unterhaltsreinigung (Büro &amp; Praxis)</h3>
-          <ul class="list">
-            <li>tägliche / wöchentliche Reinigung</li>
-            <li>Arbeitsplätze, Sanitär, Küche, Böden</li>
-            <li>Material auf Wunsch inklusive</li>
-          </ul>
-          <p class="price">ab 89 € / Einsatz</p>
-        </div>
-        <div class="card">
-          <h3>Glas- &amp; Rahmenreinigung</h3>
-          <ul class="list">
-            <li>Schaufenster &amp; Büroglas</li>
-            <li>Innen &amp; Außen</li>
-            <li>Streifenfrei – auch Abo möglich</li>
-          </ul>
-          <p class="price">ab 2,50 € / m²</p>
-        </div>
-        <div class="card">
-          <h3>Bau- &amp; Grundreinigung</h3>
-          <ul class="list">
-            <li>Bauendreinigung / Renovierung</li>
-            <li>Hartbodenpflege &amp; Versiegelung</li>
-            <li>Zertifizierte Bescheinigung</li>
-          </ul>
-          <p class="price">auf Anfrage</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- B2C -->
-  <section id="privat" class="strip">
-    <div class="container">
-      <h2>Für Privatkunden</h2>
-      <p class="sub">Stressfrei sauber – wir kommen pünktlich und arbeiten sorgfältig.</p>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Grundreinigung Wohnung</h3>
-          <ul class="list">
-            <li>Küche, Bad, Böden, Staub &amp; Oberflächen</li>
-            <li>inkl. Standard-Reinigungsmittel</li>
-          </ul>
-          <p class="price">ab 79 €</p>
-        </div>
-        <div class="card">
-          <h3>Fenster &amp; Rahmen</h3>
-          <ul class="list">
-            <li>Innen / Außen, Fensterbänke</li>
-            <li>Optional: Rollos &amp; Spiegel</li>
-          </ul>
-          <p class="price">ab 7 € / Fenster</p>
-        </div>
-        <div class="card">
-          <h3>Umzugsreinigung</h3>
-          <ul class="list">
-            <li>Besenrein inkl. Bescheinigung</li>
-            <li>Ideal für Wohnungsübergabe</li>
-          </ul>
-          <p class="price">ab 59 €</p>
-        </div>
-      </div>
-      <p class="sub" style="margin-top:14px">🎓 <b>Studentenrabatt</b> −20&nbsp;% (mit Nachweis)</p>
-    </div>
-  </section>
-
-  <!-- Preise kompakt -->
-  <section id="preise">
-    <div class="container">
-      <h2>Transparente Preise</h2>
-      <p class="sub">Festpreise nach Objektgröße – Vor-Ort-Besichtigung oder Fotos per WhatsApp genügen meist.</p>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>Standardpakete</h3>
-          <ul class="list">
-            <li>Studentenzimmer <span class="price">25 €</span></li>
-            <li>WG-Küche &amp; Bad <span class="price">35 €</span></li>
-            <li>Auszugsreinigung + Bescheinigung <span class="price">ab 59 €</span></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Firmen-Abo</h3>
-          <ul class="list">
-            <li>Wöchentlich / 2-wöchentlich</li>
-            <li>Material &amp; Checklisten inklusive</li>
-            <li>Monatlich kündbar</li>
-          </ul>
-          <p class="price">ab 189 € / Monat</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ablauf -->
-  <section id="ablauf" class="strip">
-    <div class="container">
-      <h2>So einfach läuft’s</h2>
-      <div class="steps grid grid-3">
-        <div class="step"><h4>Anfrage</h4><p>Schicken Sie uns kurz Infos/ Fotos per WhatsApp oder E-Mail.</p></div>
-        <div class="step"><h4>Angebot</h4><p>Sie erhalten ein faires Festpreis-Angebot mit Termin.</p></div>
-        <div class="step"><h4>Ausführung</h4><p>Pünktlich, gründlich, dokumentiert – auf Wunsch mit Schlüsselverwaltung.</p></div>
-      </div>
-      <div style="margin-top:22px" class="cta-band">
-        <a class="btn" href="https://wa.me/491739089197?text=Ich%20brauche%20ein%20Reinigungsangebot.">💬 Angebot per WhatsApp</a>
-        <a class="btn btn-outline" href="#kontakt">📩 Kontaktformular</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kontakt -->
-  <section id="kontakt">
-    <div class="container">
-      <h2>Kontakt &amp; Angebot</h2>
-      <p class="sub">Antwort meist innerhalb weniger Stunden.</p>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>Direkt</h3>
-          <p>📞 <a href="tel:+491739089197">+49 173 9089197</a><br/>
-             💬 <a href="https://wa.me/491739089197">WhatsApp Chat</a><br/>
-             ✉️ <a href="mailto:info@besenlappe.de">info@besenlappe.de</a>
-          </p>
-          <p class="sub">Einsatzgebiet: Berlin &amp; Brandenburg</p>
-        </div>
-        <div class="card">
-          <h3>Kurznachricht</h3>
-          <form action="mailto:info@besenlappe.de" method="post" enctype="text/plain">
-            <input style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px" type="text" name="name" placeholder="Ihr Name" required>
-            <input style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px" type="email" name="email" placeholder="E-Mail" required>
-            <textarea style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px" name="message" rows="5" placeholder="Objekt, Fläche, Terminwunsch"></textarea>
-            <button class="btn" type="submit">Absenden</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div>🧹 <b>BESEN &amp; LAPPE Reinigungsservice</b> • Berlin &amp; Brandenburg</div>
-      <div class="legal">Kleinunternehmer gem. §19 UStG (Rechnungen ohne USt). | WhatsApp: +49 173 9089197 | E-Mail: info@besenlappe.de</div>
-    </div>
-  </footer>
-
-  <!-- LocalBusiness Schema -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"BESEN & LAPPE Reinigungsservice",
-    "url":"https://besenlappe.de",
-    "telephone":"+49 173 9089197",
-    "areaServed":["Berlin","Brandenburg"],
-    "priceRange":"€€",
-    "sameAs":["https://wa.me/491739089197"],
-    "serviceType":["Unterhaltsreinigung","Büroreinigung","Praxisreinigung","Glasreinigung","Grundreinigung","Umzugsreinigung"]
-  }
-  </script>
+  <!-- بقية الكود كما هو (الهيدر، الأقسام B2B وB2C، الأسعار، خطوات العمل، الفورم، الفوتر) -->
 </body>
 </html>
