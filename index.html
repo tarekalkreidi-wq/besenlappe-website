@@ -1,165 +1,264 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BESEN & LAPPE Reinigungsservice</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BESEN & LAPPE Reinigungsservice | Firmen & Privat | Berlin & Brandenburg</title>
+  <meta name="description" content="Professionelle Unterhalts- & Grundreinigung für Firmen, Praxen, Büros und Privathaushalte. Schnell, zuverlässig, fair – in Berlin & Brandenburg. Angebot in 60 Sekunden anfragen." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BESEN & LAPPE Reinigungsservice" />
+  <meta property="og:description" content="Firmenreinigung & Privatreinigung in Berlin & Brandenburg. Angebot in 60 Sekunden anfragen." />
+  <meta property="og:url" content="https://besenlappe.de/" />
+  <meta property="og:type" content="website" />
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #0c1a2b;
-      color: #fff;
-      line-height: 1.6;
+    :root{
+      --bg:#0c1a2b;        /* Navy داكن */
+      --bg2:#13233a;       /* تدرّج */
+      --brand:#f9d342;     /* أصفر ذهبي */
+      --muted:#94a3b8;     /* رمادي أزرق */
+      --card:#0f1f34;      /* خلفية كروت */
+      --ok:#22c55e;
+      --danger:#ef4444;
     }
-    header {
-      background: #112d4e;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      color: #f9d342;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 18px;
-    }
-    .hero {
-      text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(to right, #162447, #1f4068);
-    }
-    .hero h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    .hero a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: #f9d342;
-      color: #0c1a2b;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    .services, .prices, .contact {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .services h3, .prices h3, .contact h3 {
-      color: #f9d342;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .prices table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-    .prices th, .prices td {
-      border: 1px solid #ddd;
-      padding: 12px;
-      text-align: center;
-      background: #1b1b2f;
-    }
-    .prices th {
-      background: #112d4e;
-      color: #f9d342;
-    }
-    .contact form {
-      display: flex;
-      flex-direction: column;
-    }
-    .contact input, .contact textarea {
-      margin: 10px 0;
-      padding: 12px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    .contact button {
-      background: #f9d342;
-      color: #0c1a2b;
-      padding: 12px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #112d4e;
-      font-size: 14px;
-    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#fff}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1080px;margin:auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:.6rem;background:var(--brand);color:#111;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.25);transition:.2s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-outline{background:transparent;border:2px solid var(--brand);color:#fff}
+    .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:#123357;color:#cde4ff;font-size:.75rem;font-weight:600;letter-spacing:.2px}
+
+    header{position:sticky;top:0;z-index:20;background:rgba(12,26,43,.9);backdrop-filter:blur(6px);border-bottom:1px solid #1e3350}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+    .logo{font-size:1.25rem;font-weight:800;letter-spacing:.6px}
+    .nav a{opacity:.9;margin-left:1rem}
+    .nav .cta{margin-left:auto}
+
+    .hero{background:linear-gradient(180deg,var(--bg2),var(--bg));padding:64px 0 40px;border-bottom:1px solid #1e3350}
+    .hero h1{font-size:2.2rem;margin:.2rem 0}
+    .hero p{color:var(--muted);max-width:720px}
+    .hero-actions{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+
+    section{padding:48px 0}
+    h2{font-size:1.6rem;margin:0 0 10px}
+    .sub{color:var(--muted);margin:0 0 24px}
+
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)} .grid-2{grid-template-columns:repeat(2,1fr)}}
+
+    .card{background:var(--card);border:1px solid #1e3350;border-radius:14px;padding:20px}
+    .card h3{margin:0 0 8px;font-size:1.1rem}
+    .list{margin:10px 0 0;padding:0;list-style:none}
+    .list li{padding:6px 0;border-top:1px dashed #254061}
+    .price{font-weight:800;color:var(--brand)}
+
+    .strip{background:#0b1a2f;border-top:1px solid #1e3350;border-bottom:1px solid #1e3350}
+    .steps{counter-reset:s;display:grid;gap:16px}
+    .step{background:var(--card);border:1px solid #1e3350;border-radius:14px;padding:18px}
+    .step h4{margin:0 0 6px}
+    .step:before{counter-increment:s;content:counter(s);display:inline-grid;place-content:center;width:30px;height:30px;border-radius:8px;background:var(--brand);color:#111;font-weight:800;margin-right:8px}
+
+    .cta-band{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;padding:26px;border-radius:14px;background:linear-gradient(90deg,#153055,#0e223b)}
+    footer{padding:36px 0;border-top:1px solid #1e3350;color:#a9b7cc;font-size:.9rem}
+    .legal{opacity:.8}
   </style>
 </head>
+
 <body>
+  <!-- NAV -->
   <header>
-    <h1>BESEN & LAPPE</h1>
-    <p>Reinigungsservice – Sauberkeit für dein Leben</p>
+    <div class="container nav">
+      <div class="logo">🧹 <span style="color:var(--brand)">BESEN &amp; LAPPE</span></div>
+      <nav>
+        <a href="#firmen">Firmen</a>
+        <a href="#privat">Privat</a>
+        <a href="#preise">Preise</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#kontakt" class="btn cta">Angebot anfordern</a>
+      </nav>
+    </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
-    <h2>Sauberkeit für Studenten, Privat & Firmen</h2>
-    <p>Wir reinigen schnell, zuverlässig und günstig in Berlin & Brandenburg.</p>
-    <a href="mailto:info@besenlappe.de">📧 E-Mail schreiben</a>
-    <a href="https://wa.me/491739089197">💬 WhatsApp</a>
+    <div class="container">
+      <span class="badge">Berlin &amp; Brandenburg • Rechnung &amp; Bescheinigung</span>
+      <h1>Reinigungsservice für <span style="color:var(--brand)">Firmen</span> &amp; <span style="color:var(--brand)">Privat</span></h1>
+      <p>Unterhalts- &amp; Grundreinigung für Büros, Praxen, Läden, Treppenhäuser und Wohnungen. Schnell, zuverlässig, fair. Angebot in 60 Sekunden per WhatsApp oder E-Mail.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20brauche%20ein%20Reinigungsangebot.">💬 WhatsApp Angebot</a>
+        <a class="btn btn-outline" href="mailto:info@besenlappe.de?subject=Angebot%20Reinigung&body=Bitte%20schildern%20Sie%20kurz%20Objekt%2FTermin%3A">📧 E-Mail senden</a>
+        <a class="btn btn-outline" href="tel:+491739089197">📞 Anrufen</a>
+      </div>
+    </div>
   </section>
 
-  <section class="services">
-    <h3>Unsere Leistungen</h3>
-    <ul>
-      <li>Studentenzimmer Reinigung</li>
-      <li>WG-Küche & Bad Reinigung</li>
-      <li>Auszugsreinigung inkl. Bescheinigung</li>
-      <li>Büroreinigung & Firmenservice</li>
-      <li>Gebäudereinigung & Sonderaufträge</li>
-    </ul>
+  <!-- B2B -->
+  <section id="firmen">
+    <div class="container">
+      <h2>Für Unternehmen</h2>
+      <p class="sub">Planbare Qualität, feste Ansprechpartner und saubere Arbeitsplätze – wir entlasten Ihr Team.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Unterhaltsreinigung (Büro &amp; Praxis)</h3>
+          <ul class="list">
+            <li>tägliche / wöchentliche Reinigung</li>
+            <li>Arbeitsplätze, Sanitär, Küche, Böden</li>
+            <li>Material auf Wunsch inklusive</li>
+          </ul>
+          <p class="price">ab 89 € / Einsatz</p>
+        </div>
+        <div class="card">
+          <h3>Glas- &amp; Rahmenreinigung</h3>
+          <ul class="list">
+            <li>Schaufenster &amp; Büroglas</li>
+            <li>Innen &amp; Außen</li>
+            <li>Streifenfrei – auch Abo möglich</li>
+          </ul>
+          <p class="price">ab 2,50 € / m²</p>
+        </div>
+        <div class="card">
+          <h3>Bau- &amp; Grundreinigung</h3>
+          <ul class="list">
+            <li>Bauendreinigung / Renovierung</li>
+            <li>Hartbodenpflege &amp; Versiegelung</li>
+            <li>Zertifizierte Bescheinigung</li>
+          </ul>
+          <p class="price">auf Anfrage</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="prices">
-    <h3>Preise</h3>
-    <table>
-      <tr>
-        <th>Service</th>
-        <th>Preis</th>
-      </tr>
-      <tr>
-        <td>Studentenzimmer</td>
-        <td>25 €</td>
-      </tr>
-      <tr>
-        <td>WG-Küche & Bad</td>
-        <td>35 €</td>
-      </tr>
-      <tr>
-        <td>Auszugsreinigung inkl. Bescheinigung</td>
-        <td>ab 59 €</td>
-      </tr>
-      <tr>
-        <td>Studentenrabatt</td>
-        <td>-20 %</td>
-      </tr>
-    </table>
+  <!-- B2C -->
+  <section id="privat" class="strip">
+    <div class="container">
+      <h2>Für Privatkunden</h2>
+      <p class="sub">Stressfrei sauber – wir kommen pünktlich und arbeiten sorgfältig.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Grundreinigung Wohnung</h3>
+          <ul class="list">
+            <li>Küche, Bad, Böden, Staub &amp; Oberflächen</li>
+            <li>inkl. Standard-Reinigungsmittel</li>
+          </ul>
+          <p class="price">ab 79 €</p>
+        </div>
+        <div class="card">
+          <h3>Fenster &amp; Rahmen</h3>
+          <ul class="list">
+            <li>Innen / Außen, Fensterbänke</li>
+            <li>Optional: Rollos &amp; Spiegel</li>
+          </ul>
+          <p class="price">ab 7 € / Fenster</p>
+        </div>
+        <div class="card">
+          <h3>Umzugsreinigung</h3>
+          <ul class="list">
+            <li>Besenrein inkl. Bescheinigung</li>
+            <li>Ideal für Wohnungsübergabe</li>
+          </ul>
+          <p class="price">ab 59 €</p>
+        </div>
+      </div>
+      <p class="sub" style="margin-top:14px">🎓 <b>Studentenrabatt</b> −20&nbsp;% (mit Nachweis)</p>
+    </div>
   </section>
 
-  <section class="contact">
-    <h3>Kontakt</h3>
-    <form action="mailto:info@besenlappe.de" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Dein Name" required>
-      <input type="email" name="email" placeholder="Deine E-Mail" required>
-      <textarea name="message" rows="5" placeholder="Deine Nachricht"></textarea>
-      <button type="submit">Nachricht senden</button>
-    </form>
+  <!-- Preise kompakt -->
+  <section id="preise">
+    <div class="container">
+      <h2>Transparente Preise</h2>
+      <p class="sub">Festpreise nach Objektgröße – Vor-Ort-Besichtigung oder Fotos per WhatsApp genügen meist.</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Standardpakete</h3>
+          <ul class="list">
+            <li>Studentenzimmer <span class="price">25 €</span></li>
+            <li>WG-Küche &amp; Bad <span class="price">35 €</span></li>
+            <li>Auszugsreinigung + Bescheinigung <span class="price">ab 59 €</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Firmen-Abo</h3>
+          <ul class="list">
+            <li>Wöchentlich / 2-wöchentlich</li>
+            <li>Material &amp; Checklisten inklusive</li>
+            <li>Monatlich kündbar</li>
+          </ul>
+          <p class="price">ab 189 € / Monat</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablauf -->
+  <section id="ablauf" class="strip">
+    <div class="container">
+      <h2>So einfach läuft’s</h2>
+      <div class="steps grid grid-3">
+        <div class="step"><h4>Anfrage</h4><p>Schicken Sie uns kurz Infos/ Fotos per WhatsApp oder E-Mail.</p></div>
+        <div class="step"><h4>Angebot</h4><p>Sie erhalten ein faires Festpreis-Angebot mit Termin.</p></div>
+        <div class="step"><h4>Ausführung</h4><p>Pünktlich, gründlich, dokumentiert – auf Wunsch mit Schlüsselverwaltung.</p></div>
+      </div>
+      <div style="margin-top:22px" class="cta-band">
+        <a class="btn" href="https://wa.me/491739089197?text=Ich%20brauche%20ein%20Reinigungsangebot.">💬 Angebot per WhatsApp</a>
+        <a class="btn btn-outline" href="#kontakt">📩 Kontaktformular</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt">
+    <div class="container">
+      <h2>Kontakt &amp; Angebot</h2>
+      <p class="sub">Antwort meist innerhalb weniger Stunden.</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Direkt</h3>
+          <p>📞 <a href="tel:+491739089197">+49 173 9089197</a><br/>
+             💬 <a href="https://wa.me/491739089197">WhatsApp Chat</a><br/>
+             ✉️ <a href="mailto:info@besenlappe.de">info@besenlappe.de</a>
+          </p>
+          <p class="sub">Einsatzgebiet: Berlin &amp; Brandenburg</p>
+        </div>
+        <div class="card">
+          <h3>Kurznachricht</h3>
+          <form action="mailto:info@besenlappe.de" method="post" enctype="text/plain">
+            <input style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px" type="text" name="name" placeholder="Ihr Name" required>
+            <input style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px" type="email" name="email" placeholder="E-Mail" required>
+            <textarea style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px" name="message" rows="5" placeholder="Objekt, Fläche, Terminwunsch"></textarea>
+            <button class="btn" type="submit">Absenden</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 BESEN & LAPPE Reinigungsservice | Kleinunternehmer nach §19 UStG</p>
+    <div class="container">
+      <div>🧹 <b>BESEN &amp; LAPPE Reinigungsservice</b> • Berlin &amp; Brandenburg</div>
+      <div class="legal">Kleinunternehmer gem. §19 UStG (Rechnungen ohne USt). | WhatsApp: +49 173 9089197 | E-Mail: info@besenlappe.de</div>
+    </div>
   </footer>
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"BESEN & LAPPE Reinigungsservice",
+    "url":"https://besenlappe.de",
+    "telephone":"+49 173 9089197",
+    "areaServed":["Berlin","Brandenburg"],
+    "priceRange":"€€",
+    "sameAs":["https://wa.me/491739089197"],
+    "serviceType":["Unterhaltsreinigung","Büroreinigung","Praxisreinigung","Glasreinigung","Grundreinigung","Umzugsreinigung"]
+  }
+  </script>
 </body>
 </html>
