@@ -1,4 +1,17 @@
+# robots.txt for besenlappe.de
+# Optimized for SEO
+
 User-agent: *
+# السماح بفهرسة الموقع بالكامل
 Allow: /
 
+# حظر صفحات أو ملفات غير ضرورية
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /admin/
+Disallow: /*.pdf$
+Disallow: /*.zip$
+Disallow: /*.rar$
+
+# Sitemap - مهم جداً للـ SEO
 Sitemap: https://besenlappe.de/sitemap.xml
