@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://besenlappe.de/sitemap.xml
