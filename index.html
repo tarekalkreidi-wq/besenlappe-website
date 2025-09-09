@@ -24,9 +24,7 @@
     "areaServed":["Berlin","Brandenburg"],
     "priceRange":"€€",
     "sameAs":["https://wa.me/491739089197"],
-    "serviceType":[
-      "Unterhaltsreinigung","Büroreinigung","Praxisreinigung","Glasreinigung","Grundreinigung","Umzugsreinigung"
-    ]
+    "serviceType":["Unterhaltsreinigung","Büroreinigung","Praxisreinigung","Glasreinigung","Grundreinigung","Umzugsreinigung"]
   }
   </script>
 
@@ -36,12 +34,12 @@
       --muted:#c9d3e6;
       --card:rgba(15,31,52,.60);
       --border:rgba(30,51,80,.55);
-      /* تحكّم سريع بدرجة التعتيم العامة للخلفية */
-      --overlay-top: .10;  /* اللمعة العليا */
-      --overlay-mid: .06;  /* الأزرق الفاتح */
-      --overlay-grad1: .42; /* التدرج العام أعلى الصفحة */
-      --overlay-grad2: .58; /* منتصف الصفحة */
-      --overlay-grad3: .72; /* أسفل الصفحة */
+      /* درجة التعتيم العامة للخلفية (خفيفة) */
+      --overlay-top:.08;
+      --overlay-mid:.05;
+      --overlay-grad1:.36;
+      --overlay-grad2:.52;
+      --overlay-grad3:.66;
     }
 
     html{scroll-behavior:smooth; background:#081020;}
@@ -54,7 +52,7 @@
     .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:.6rem;background:var(--brand);color:#111;font-weight:700;box-shadow:0 8px 22px rgba(249,211,66,.22);transition:.2s}
     .btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(249,211,66,.33)}
     .btn-outline{background:transparent;border:2px solid var(--brand);color:#fff}
-    .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:rgba(18,51,87,.75);color:#cde4ff;font-size:.75rem;font-weight:600;letter-spacing:.2px}
+    .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:rgba(18,51,87,.68);color:#cde4ff;font-size:.75rem;font-weight:600;letter-spacing:.2px}
 
     /* ===== خلفية الصفحة (سلايدشو) ===== */
     .site-bg{ position:fixed; inset:0; z-index:0; overflow:hidden; background:#081020; }
@@ -62,12 +60,11 @@
       position:absolute; inset:0; width:100%; height:100%;
       object-fit:cover; object-position:center;
       opacity:0; transition:opacity 1.3s ease-in-out; will-change:opacity;
-      /* قللنا التأثيرات عشان ما تغمّق زيادة */
-      filter:saturate(1.03) contrast(1.03);
+      filter:saturate(1.03) contrast(1.04);
     }
     .site-bg img.active{ opacity:1; }
 
-    /* طبقة التعتيم – خفّفناها */
+    /* طبقة التعتيم – خفيفة */
     .bg-overlay{
       position:fixed; inset:0; z-index:1; pointer-events:none;
       background:
@@ -116,7 +113,7 @@
     .card h3{margin:0 0 8px;font-size:1.1rem}
     .list{margin:10px 0 0;padding:0;list-style:none}
     .list li{padding:6px 0;border-top:1px dashed rgba(37,64,97,.75)}
-    .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(11,26,47,.28)}
+    .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(11,26,47,.24)}
 
     .price{font-weight:800;color:transparent;position:relative;min-height:1.2em}
     .price::after{content:"auf Anfrage";position:absolute;inset:0 auto auto 0;color:var(--brand);font-weight:800;white-space:nowrap}
@@ -148,17 +145,18 @@
 
 <body>
 
-  <!-- خلفية الصفحة المتغيرة (أضفنا حمّامات/WC ومكاتب مع كمبيوترات) -->
+  <!-- خلفية الصفحة المتغيرة: مكاتب نظيفة بدون أشخاص + WC/حمّامات نظيفة -->
   <div class="site-bg" aria-hidden="true">
-    <!-- Offices with computers -->
-    <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1920&q=80" alt="" loading="eager" class="active">
-    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <!-- Clean offices (no people) -->
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" alt="" loading="eager" class="active">
+    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1507209696998-3c532be9b2b6?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
 
-    <!-- Clean bathrooms / WC -->
-    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1560448075-bb4caa6c1ad9?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <!-- Clean WC / Bathrooms -->
+    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1920&q=80" alt="Clean bathroom" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1560448075-bb4caa6c1ad9?auto=format&fit=crop&w=1920&q=80" alt="Clean wash basin" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1603503361791-73f3f5a4d1ba?auto=format&fit=crop&w=1920&q=80" alt="Clean WC" loading="lazy">
 
     <!-- Kitchen / Hall / Staircase -->
     <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
@@ -302,7 +300,7 @@
         <div class="steps grid grid-3">
           <div class="card step"><h4>Anfrage</h4><p>Schicken Sie uns kurz Infos/ Fotos per WhatsApp oder E-Mail.</p></div>
           <div class="card step"><h4>Angebot</h4><p>Sie erhalten ein faires Festpreis-Angebot mit Termin.</p></div>
-          <div class="card step"><h4>Ausführung</h4><p>Pünktlich, gründlich, dokumentiert – auf Wunsch mit Schlüsselverwaltung.</p></div>
+          <div class="card step"><h4>Ausführung</h4><p>Pünktlich، gründlich، dokumentiert – auf Wunsch mit Schlüsselverwaltung.</p></div>
         </div>
         <div style="margin-top:22px" class="card">
           <a class="btn" href="https://wa.me/491739089197?text=Ich%20brauche%20ein%20Reinigungsangebot.">💬 Angebot per WhatsApp</a>
