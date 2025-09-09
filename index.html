@@ -15,17 +15,7 @@
 
   <!-- LocalBusiness Schema -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"BESEN & LAPPE Reinigungsservice",
-    "url":"https://besenlappe.de",
-    "telephone":"+49 173 9089197",
-    "areaServed":["Berlin","Brandenburg"],
-    "priceRange":"€€",
-    "sameAs":["https://wa.me/491739089197"],
-    "serviceType":["Unterhaltsreinigung","Büroreinigung","Praxisreinigung","Glasreinigung","Grundreinigung","Umzugsreinigung"]
-  }
+  {"@context":"https://schema.org","@type":"LocalBusiness","name":"BESEN & LAPPE Reinigungsservice","url":"https://besenlappe.de","telephone":"+49 173 9089197","areaServed":["Berlin","Brandenburg"],"priceRange":"€€","sameAs":["https://wa.me/491739089197"],"serviceType":["Unterhaltsreinigung","Büroreinigung","Praxisreinigung","Glasreinigung","Grundreinigung","Umzugsreinigung"]}
   </script>
 
   <style>
@@ -34,14 +24,13 @@
       --muted:#c9d3e6;
       --card:rgba(15,31,52,.60);
       --border:rgba(30,51,80,.55);
-      /* درجة التعتيم العامة للخلفية (خفيفة) */
+      /* تعتيم خفيف وواضح للصور */
       --overlay-top:.08;
       --overlay-mid:.05;
-      --overlay-grad1:.36;
-      --overlay-grad2:.52;
-      --overlay-grad3:.66;
+      --overlay-grad1:.34;
+      --overlay-grad2:.50;
+      --overlay-grad3:.64;
     }
-
     html{scroll-behavior:smooth; background:#081020;}
     *{box-sizing:border-box}
     html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#fff}
@@ -54,7 +43,7 @@
     .btn-outline{background:transparent;border:2px solid var(--brand);color:#fff}
     .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:rgba(18,51,87,.68);color:#cde4ff;font-size:.75rem;font-weight:600;letter-spacing:.2px}
 
-    /* ===== خلفية الصفحة (سلايدشو) ===== */
+    /* خلفية الصفحة (سلايدشو) */
     .site-bg{ position:fixed; inset:0; z-index:0; overflow:hidden; background:#081020; }
     .site-bg img{
       position:absolute; inset:0; width:100%; height:100%;
@@ -64,7 +53,7 @@
     }
     .site-bg img.active{ opacity:1; }
 
-    /* طبقة التعتيم – خفيفة */
+    /* طبقة التعتيم */
     .bg-overlay{
       position:fixed; inset:0; z-index:1; pointer-events:none;
       background:
@@ -76,7 +65,6 @@
           rgba(7,12,22,var(--overlay-grad3)));
     }
 
-    /* المحتوى */
     .page{position:relative; z-index:2;}
     header{position:sticky;top:0;z-index:3;background:rgba(12,26,43,.70);backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
@@ -118,10 +106,8 @@
     .price{font-weight:800;color:transparent;position:relative;min-height:1.2em}
     .price::after{content:"auf Anfrage";position:absolute;inset:0 auto auto 0;color:var(--brand);font-weight:800;white-space:nowrap}
 
-    /* إخفاء بطاقة Bau- & Grundreinigung (ثالث كارد داخل #firmen) */
     #firmen .grid.grid-3 .card:nth-child(3){display:none}
 
-    /* الأدوات الطافية */
     .floating-tools{
       position:fixed; top:18px; right:18px; z-index:4; display:flex; gap:14px;
       pointer-events:none; opacity:.95; filter:drop-shadow(0 8px 18px rgba(0,0,0,.28));
@@ -145,23 +131,23 @@
 
 <body>
 
-  <!-- خلفية الصفحة المتغيرة: مكاتب نظيفة بدون أشخاص + WC/حمّامات نظيفة -->
+  <!-- خلفية الصفحة المتغيرة: مكاتب نظيفة حديثة + WC/حمّامات نظيفة -->
   <div class="site-bg" aria-hidden="true">
-    <!-- Clean offices (no people) -->
-    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" alt="" loading="eager" class="active">
-    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1507209696998-3c532be9b2b6?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <!-- Offices (clean, no people) -->
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" alt="Clean open office" loading="eager" class="active">
+    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=80" alt="Minimal desks with computers" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1507209696998-3c532be9b2b6?auto=format&fit=crop&w=1920&q=80" alt="Orderly workspace with PCs" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1920&q=80" alt="Wood floor modern office" loading="lazy">
 
     <!-- Clean WC / Bathrooms -->
-    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1920&q=80" alt="Clean bathroom" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1560448075-bb4caa6c1ad9?auto=format&fit=crop&w=1920&q=80" alt="Clean wash basin" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1603503361791-73f3f5a4d1ba?auto=format&fit=crop&w=1920&q=80" alt="Clean WC" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1920&q=80" alt="Modern clean bathroom" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1560448075-bb4caa6c1ad9?auto=format&fit=crop&w=1920&q=80" alt="Pristine wash basin" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1603503361791-73f3f5a4d1ba?auto=format&fit=crop&w=1920&q=80" alt="Clean WC minimal" loading="lazy">
 
-    <!-- Kitchen / Hall / Staircase -->
-    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <!-- Kitchen / Hall / Staircase (نفس الروح النظيفة) -->
+    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1920&q=80" alt="Clean kitchen" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1920&q=80" alt="Clean staircase" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="Lobby interior" loading="lazy">
   </div>
   <div class="bg-overlay" aria-hidden="true"></div>
 
@@ -185,7 +171,7 @@
       <div class="container hero-content">
         <span class="badge">Berlin &amp; Brandenburg • Rechnung &amp; Bescheinigung</span>
         <h1>Reinigungsservice für <span style="color:var(--brand)">Firmen</span> &amp; <span style="color:var(--brand)">Privat</span></h1>
-        <p>Unterhalts- &amp; Grundreinigung für Büros, Praxen, Läden, Treppenhäuser und Wohnungen. Schnell, zuverlässig, fair. Angebot in 60 Sekunden per WhatsApp oder E-Mail.</p>
+        <p>Unterhalts- &amp; Grundreinigung für Büros، Praxen، Läden، Treppenhäuser und Wohnungen. Schnell، zuverlässig، fair. Angebot in 60 Sekunden per WhatsApp oder E-Mail.</p>
         <div class="hero-actions">
           <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20brauche%20ein%20Reinigungsangebot.">💬 WhatsApp Angebot</a>
           <a class="btn btn-outline" href="mailto:info@besenlappe.de?subject=Angebot%20Reinigung&body=Bitte%20schildern%20Sie%20kurz%20Objekt%2FTermin%3A">📧 E-Mail senden</a>
@@ -194,7 +180,9 @@
       </div>
     </section>
 
-    <!-- B2B -->
+    <!-- بقية الصفحة كما هي (B2B/B2C/Preise/Ablauf/Kontakt/Footer) -->
+    <!-- ... (نفس محتواك السابق تمامًا) ... -->
+
     <section id="firmen">
       <div class="container">
         <h2>Für Unternehmen</h2>
@@ -231,7 +219,6 @@
       </div>
     </section>
 
-    <!-- B2C -->
     <section id="privat" class="strip">
       <div class="container">
         <h2>Für Privatkunden</h2>
@@ -266,7 +253,6 @@
       </div>
     </section>
 
-    <!-- Preise -->
     <section id="preise">
       <div class="container">
         <h2>Transparente Preise</h2>
@@ -293,14 +279,13 @@
       </div>
     </section>
 
-    <!-- Ablauf -->
     <section id="ablauf" class="strip">
       <div class="container">
         <h2>So einfach läuft’s</h2>
         <div class="steps grid grid-3">
           <div class="card step"><h4>Anfrage</h4><p>Schicken Sie uns kurz Infos/ Fotos per WhatsApp oder E-Mail.</p></div>
           <div class="card step"><h4>Angebot</h4><p>Sie erhalten ein faires Festpreis-Angebot mit Termin.</p></div>
-          <div class="card step"><h4>Ausführung</h4><p>Pünktlich، gründlich، dokumentiert – auf Wunsch mit Schlüsselverwaltung.</p></div>
+          <div class="card step"><h4>Ausführung</h4><p>Pünktlich, gründlich, dokumentiert – auf Wunsch mit Schlüsselverwaltung.</p></div>
         </div>
         <div style="margin-top:22px" class="card">
           <a class="btn" href="https://wa.me/491739089197?text=Ich%20brauche%20ein%20Reinigungsangebot.">💬 Angebot per WhatsApp</a>
@@ -309,7 +294,6 @@
       </div>
     </section>
 
-    <!-- Kontakt -->
     <section id="kontakt">
       <div class="container">
         <h2>Kontakt &amp; Angebot</h2>
@@ -342,7 +326,7 @@
         <div class="legal">Kleinunternehmer gem. §19 UStG (Rechnungen ohne USt). | WhatsApp: +49 173 9089197 | E-Mail: info@besenlappe.de</div>
       </div>
     </footer>
-  </div><!-- /page -->
+  </div>
 
   <!-- الأدوات الطافية -->
   <div class="floating-tools" aria-hidden="true">
