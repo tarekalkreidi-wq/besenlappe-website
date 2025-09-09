@@ -40,84 +40,60 @@
   <style>
     :root{
       --bg:#0c1a2b;
-      --bg2:#13233a;
       --brand:#f9d342;
-      --muted:#94a3b8;
-      --card:#0f1f34;
-      --ok:#22c55e;
-      --danger:#ef4444;
+      --muted:#c9d3e6;
+      --card:rgba(15,31,52,.66);
     }
 
-    html { scroll-behavior: smooth; }
+    html{scroll-behavior:smooth}
     *{box-sizing:border-box}
-    html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#fff}
+    html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#fff;background:#0b1626}
+
     a{color:inherit;text-decoration:none}
     .container{max-width:1080px;margin:auto;padding:0 20px}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:.6rem;background:var(--brand);color:#111;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.25);transition:.2s}
-    .btn:hover{transform:translateY(-1px)}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:.6rem;background:var(--brand);color:#111;font-weight:700;box-shadow:0 8px 22px rgba(249,211,66,.22);transition:.2s}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(249,211,66,.33)}
     .btn-outline{background:transparent;border:2px solid var(--brand);color:#fff}
-    .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:#123357;color:#cde4ff;font-size:.75rem;font-weight:600;letter-spacing:.2px}
+    .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:rgba(18,51,87,.9);color:#cde4ff;font-size:.75rem;font-weight:600;letter-spacing:.2px}
 
-    header{position:sticky;top:0;z-index:20;background:rgba(12,26,43,.9);backdrop-filter:blur(6px);border-bottom:1px solid #1e3350}
+    header{position:sticky;top:0;z-index:50;background:rgba(12,26,43,.82);backdrop-filter:blur(6px);border-bottom:1px solid rgba(30,51,80,.7)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
     .logo{font-size:1.25rem;font-weight:800;letter-spacing:.6px}
-    .nav a{opacity:.9;margin-left:1rem}
+    .nav a{opacity:.95;margin-left:1rem}
     .nav .cta{margin-left:auto}
 
-    /* ====== HERO بسلايدشو خلفي + تدرّجات ولمعان ====== */
-    .hero{
-      position: relative;
-      padding: 88px 0 60px;
-      border-bottom: 1px solid #1e3350;
-      overflow: hidden;
+    /* ====== خلفية الموقع (سلايدشو يغطي الصفحة كلها) ====== */
+    .site-bg{
+      position:fixed; inset:0; z-index:-2; overflow:hidden;
+      background:#081020;
     }
-    .hero-slideshow{
-      position:absolute; inset:0; z-index:0;
+    .site-bg img{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; object-position:center;
+      opacity:0; transition:opacity 1.3s ease-in-out; will-change:opacity;
+      filter:saturate(1.05) contrast(1.05);
     }
-    .hero-slideshow img{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      object-fit: cover; object-position:center;
-      opacity:0; transition: opacity 1.2s ease-in-out; will-change: opacity;
-    }
-    .hero-slideshow img.active{ opacity:1; }
+    .site-bg img.active{opacity:1}
 
-    /* تدرّج معتم فوق الصور */
-    .hero::before{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(12,26,43,.66), rgba(12,26,43,.82));
-      z-index:1; pointer-events:none;
-    }
-    /* بريق وخلفية ناعمة */
-    .hero::after{
-      content:"";
-      position:absolute; inset:0;
+    /* طبقة تغميق/تدرج لضمان القراءة فوق الصور */
+    .bg-overlay{
+      position:fixed; inset:0; z-index:-1; pointer-events:none;
       background:
-        radial-gradient(1200px 600px at -10% -20%, rgba(249,211,66,.12), transparent 60%),
-        radial-gradient(900px 500px at 110% 10%, rgba(57,160,255,.10), transparent 55%),
-        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.08) 50%, transparent 52%),
-        radial-gradient(2px 2px at 70% 40%, rgba(255,255,255,.06) 50%, transparent 52%),
-        radial-gradient(1.5px 1.5px at 45% 70%, rgba(255,255,255,.07) 50%, transparent 52%),
-        radial-gradient(2px 2px at 85% 80%, rgba(255,255,255,.06) 50%, transparent 52%);
-      animation: sparkles 14s ease-in-out infinite;
-      opacity:.6; z-index:2; pointer-events:none;
+        radial-gradient(1200px 600px at -10% -20%, rgba(249,211,66,.10), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(57,160,255,.08), transparent 55%),
+        linear-gradient(180deg, rgba(7,12,22,.60), rgba(7,12,22,.78) 40%, rgba(7,12,22,.90));
     }
-    @keyframes sparkles{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 
-    .hero .hero-content{ position:relative; z-index:3; }
-    .hero h1{ position:relative; display:inline-block; font-size:2.2rem; margin:.2rem 0; }
+    /* ====== HERO (شفاف يعتمد على الخلفية العامة) ====== */
+    .hero{padding:88px 0 60px}
+    .hero h1{position:relative;display:inline-block;font-size:2.2rem;margin:.2rem 0}
     .hero h1::after{
-      content:"";
-      position:absolute; left:-10%; top:0; height:100%; width:30%;
+      content:""; position:absolute; left:-10%; top:0; height:100%; width:30%;
       background:linear-gradient(75deg, transparent, rgba(255,255,255,.18), transparent);
       transform:skewX(-20deg) translateX(-140%);
-      animation: shine 5.5s ease-in-out infinite; pointer-events:none;
+      animation:shine 5.5s ease-in-out infinite; pointer-events:none;
     }
-    @keyframes shine{
-      0%{transform:skewX(-20deg) translateX(-140%)}
-      60%,100%{transform:skewX(-20deg) translateX(140%)}
-    }
+    @keyframes shine{0%{transform:skewX(-20deg) translateX(-140%)} 60%,100%{transform:skewX(-20deg) translateX(140%)}}
     .hero p{color:var(--muted);max-width:720px}
     .hero-actions{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
 
@@ -128,75 +104,67 @@
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)} .grid-2{grid-template-columns:repeat(2,1fr)}}
 
-    /* ====== كروت بزجاجي ناعم وإضاءة خفيفة ====== */
+    /* كروت شبه زجاجية */
     .card{
-      background: rgba(15,31,52,.66);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border:1px solid rgba(30,51,80,.8);
+      background:var(--card);
+      backdrop-filter:blur(6px);
+      border:1px solid rgba(30,51,80,.7);
       border-radius:14px;
       padding:20px;
-      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
     }
     .card h3{margin:0 0 8px;font-size:1.1rem}
     .list{margin:10px 0 0;padding:0;list-style:none}
-    .list li{padding:6px 0;border-top:1px dashed #254061}
-    .price{font-weight:800;color:var(--brand)}
-
-    .strip{background:#0b1a2f;border-top:1px solid #1e3350;border-bottom:1px solid #1e3350}
-    .steps{counter-reset:s;display:grid;gap:16px}
-    .step{background:var(--card);border:1px solid #1e3350;border-radius:14px;padding:18px}
-    .step h4{margin:0 0 6px}
-    .step:before{counter-increment:s;content:counter(s);display:inline-grid;place-content:center;width:30px;height:30px;border-radius:8px;background:var(--brand);color:#111;font-weight:800;margin-right:8px}
-
-    .cta-band{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;padding:26px;border-radius:14px;background:linear-gradient(90deg,#153055,#0e223b)}
-    footer{padding:36px 0;border-top:1px solid #1e3350;color:#a9b7cc;font-size:.9rem}
-    .legal{opacity:.8}
-
-    /* لمسة توهّج أقوى قليلًا للأزرار */
-    .btn{ box-shadow: 0 8px 22px rgba(249,211,66,.22); }
-    .btn:hover{ box-shadow: 0 12px 28px rgba(249,211,66,.33); }
-
-    /* إخفاء الأسعار واستبدالها بـ "auf Anfrage" */
-    .price{
-      position: relative;
-      color: transparent !important;
-      min-height: 1.2em;
-    }
-    .price::after{
-      content: "auf Anfrage";
-      position: absolute;
-      inset: 0 auto auto 0;
-      color: var(--brand);
-      font-weight: 800;
-      white-space: nowrap;
-    }
+    .list li{padding:6px 0;border-top:1px dashed rgba(37,64,97,.8)}
+    .strip{border-top:1px solid rgba(30,51,80,.7);border-bottom:1px solid rgba(30,51,80,.7);background:rgba(11,26,47,.35)}
+    .price{font-weight:800;color:transparent;position:relative;min-height:1.2em}
+    .price::after{content:"auf Anfrage";position:absolute;inset:0 auto auto 0;color:var(--brand);font-weight:800;white-space:nowrap}
 
     /* إخفاء بطاقة Bau- & Grundreinigung (ثالث كارد داخل #firmen) */
-    #firmen .grid.grid-3 .card:nth-child(3){ display: none; }
+    #firmen .grid.grid-3 .card:nth-child(3){display:none}
 
-    /* المقشة + الخرقة متحركة */
+    /* الأدوات الطافية */
     .floating-tools{
-      position: fixed; top: 18px; right: 18px; z-index: 9999;
-      display: flex; gap: 14px; pointer-events: none; opacity: .95;
-      filter: drop-shadow(0 8px 18px rgba(0,0,0,.28));
+      position:fixed; top:18px; right:18px; z-index:60; display:flex; gap:14px;
+      pointer-events:none; opacity:.95; filter:drop-shadow(0 8px 18px rgba(0,0,0,.28));
     }
-    .broom{ width: 90px; height: 90px; transform-origin: top center; animation: broom-sway 4.2s ease-in-out infinite; }
-    .cloth{ width: 72px; height: 72px; animation: cloth-float 5s ease-in-out infinite; }
-    @keyframes broom-sway{ 0%{transform:rotate(-5deg) translateY(0)} 50%{transform:rotate(5deg) translateY(-3px)} 100%{transform:rotate(-5deg) translateY(0)} }
-    @keyframes cloth-float{ 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-8px) rotate(2deg)} }
+    .broom{width:90px;height:90px;transform-origin:top center;animation:broom-sway 4.2s ease-in-out infinite}
+    .cloth{width:72px;height:72px;animation:cloth-float 5s ease-in-out infinite}
+    @keyframes broom-sway{0%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(5deg) translateY(-3px)}100%{transform:rotate(-5deg) translateY(0)}}
+    @keyframes cloth-float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+
+    footer{padding:36px 0;border-top:1px solid rgba(30,51,80,.7);color:#d1d9ea;font-size:.9rem}
+    .legal{opacity:.85}
 
     /* موبايل */
-    @media (max-width: 768px){
-      .hero{ padding:70px 0 46px; }
-      .floating-tools{ top: 10px; right: 10px; gap: 10px; }
-      .broom{ width: 66px; height: 66px; }
-      .cloth{ width: 54px; height: 54px; }
+    @media(max-width:768px){
+      .hero{padding:70px 0 46px}
+      .floating-tools{top:10px;right:10px;gap:10px}
+      .broom{width:66px;height:66px}
+      .cloth{width:54px;height:54px}
     }
   </style>
 </head>
 
 <body>
+
+  <!-- خلفية الصفحة المتغيرة -->
+  <div class="site-bg" aria-hidden="true">
+    <!-- مكتب نظيف -->
+    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1920&q=80" alt="" loading="eager" class="active">
+    <!-- غرفة جلوس نظيفة -->
+    <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d91?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <!-- حمّام/مغسلة نظيفة -->
+    <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <!-- مطبخ نظيف -->
+    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <!-- سُلّم/رواق عمارة -->
+    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <!-- بهو/عمارة من الداخل -->
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+  </div>
+  <div class="bg-overlay" aria-hidden="true"></div>
+
   <!-- NAV -->
   <header>
     <div class="container nav">
@@ -211,20 +179,8 @@
     </div>
   </header>
 
-  <!-- HERO مع سلايدشو -->
+  <!-- HERO -->
   <section class="hero">
-    <!-- خلفيات متبدلة -->
-    <div class="hero-slideshow" aria-hidden="true">
-      <!-- مكتب نظيف -->
-      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1920&q=80" alt="" loading="eager" class="active">
-      <!-- غرفة جلوس -->
-      <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d91?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-      <!-- حمّام نظيف -->
-      <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-      <!-- سُلّم / رواق -->
-      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    </div>
-
     <div class="container hero-content">
       <span class="badge">Berlin &amp; Brandenburg • Rechnung &amp; Bescheinigung</span>
       <h1>Reinigungsservice für <span style="color:var(--brand)">Firmen</span> &amp; <span style="color:var(--brand)">Privat</span></h1>
@@ -341,11 +297,11 @@
     <div class="container">
       <h2>So einfach läuft’s</h2>
       <div class="steps grid grid-3">
-        <div class="step"><h4>Anfrage</h4><p>Schicken Sie uns kurz Infos/ Fotos per WhatsApp oder E-Mail.</p></div>
-        <div class="step"><h4>Angebot</h4><p>Sie erhalten ein faires Festpreis-Angebot mit Termin.</p></div>
-        <div class="step"><h4>Ausführung</h4><p>Pünktlich, gründlich, dokumentiert – auf Wunsch mit Schlüsselverwaltung.</p></div>
+        <div class="card step"><h4>Anfrage</h4><p>Schicken Sie uns kurz Infos/ Fotos per WhatsApp oder E-Mail.</p></div>
+        <div class="card step"><h4>Angebot</h4><p>Sie erhalten ein faires Festpreis-Angebot mit Termin.</p></div>
+        <div class="card step"><h4>Ausführung</h4><p>Pünktlich, gründlich, dokumentiert – auf Wunsch mit Schlüsselverwaltung.</p></div>
       </div>
-      <div style="margin-top:22px" class="cta-band">
+      <div style="margin-top:22px" class="cta-band card" >
         <a class="btn" href="https://wa.me/491739089197?text=Ich%20brauche%20ein%20Reinigungsangebot.">💬 Angebot per WhatsApp</a>
         <a class="btn btn-outline" href="#kontakt">📩 Kontaktformular</a>
       </div>
@@ -386,7 +342,7 @@
     </div>
   </footer>
 
-  <!-- ديكور المقشة + الخرقة المتحركة (أعلى يمين) -->
+  <!-- الأدوات الطافية -->
   <div class="floating-tools" aria-hidden="true">
     <!-- Broom -->
     <svg class="broom" viewBox="0 0 64 64" fill="none">
@@ -403,56 +359,25 @@
     </svg>
   </div>
 
-  <!-- سكرِبت السلايدشو -->
+  <!-- سكربت السلايدشو للخلفية العامة -->
   <script>
   (function(){
-    const container = document.querySelector('.hero-slideshow');
-    if(!container) return;
-    const imgs = Array.from(container.querySelectorAll('img'));
+    const bg = document.querySelector('.site-bg');
+    if(!bg) return;
+    const imgs = Array.from(bg.querySelectorAll('img'));
     if(imgs.length <= 1) return;
 
-    const intervalMs = 5000; // 5 ثوانٍ لكل صورة
+    const intervalMs = 6000; // مدة كل صورة
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    let idx = 0;
-    let timer = null;
-
-    function show(i){
-      imgs.forEach((img, n) => img.classList.toggle('active', n === i));
-    }
-    function next(){ idx = (idx + 1) % imgs.length; show(idx); }
-    function start(){ stop(); if(prefersReduced) return; timer = setInterval(next, intervalMs); }
-    function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+    let idx = 0, t = null;
+    const show = i => imgs.forEach((im,n)=>im.classList.toggle('active', n===i));
+    const next = () => { idx = (idx+1)%imgs.length; show(idx); };
+    const start = () => { stop(); if(prefersReduced) return; t=setInterval(next, intervalMs); };
+    const stop  = () => { if(t){clearInterval(t); t=null;} };
 
     show(idx); start();
-
-    document.addEventListener('visibilitychange', () => {
-      document.hidden ? stop() : start();
-    }, {passive:true});
-
-    // سحب للموبايل + أسهم للكيبورد (اختياري)
-    let touchX = null;
-    container.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, {passive:true});
-    container.addEventListener('touchend', e => {
-      if(touchX === null) return;
-      const dx = e.changedTouches[0].clientX - touchX;
-      if(Math.abs(dx) > 50){
-        stop();
-        idx = (dx < 0) ? (idx + 1) % imgs.length : (idx - 1 + imgs.length) % imgs.length;
-        show(idx);
-        start();
-      }
-      touchX = null;
-    }, {passive:true});
-
-    window.addEventListener('keydown', e => {
-      if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
-        stop();
-        idx = (e.key === 'ArrowRight') ? (idx + 1) % imgs.length : (idx - 1 + imgs.length) % imgs.length;
-        show(idx);
-        start();
-      }
-    });
+    document.addEventListener('visibilitychange', ()=> document.hidden ? stop() : start(), {passive:true});
   })();
   </script>
 </body>
