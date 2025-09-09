@@ -6,8 +6,6 @@
   <title>BESEN & LAPPE Reinigungsservice | Firmen & Privat | Berlin & Brandenburg</title>
   <meta name="description" content="Professionelle Unterhalts- & Grundreinigung für Firmen, Praxen, Büros und Privathaushalte. Schnell, zuverlässig, fair – in Berlin & Brandenburg. Angebot in 60 Sekunden anfragen." />
   <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="BESEN & LAPPE Reinigungsservice" />
   <meta property="og:description" content="Firmenreinigung & Privatreinigung in Berlin & Brandenburg. Angebot in 60 Sekunden anfragen." />
   <meta property="og:url" content="https://besenlappe.de/" />
@@ -15,7 +13,7 @@
   <link rel="canonical" href="https://besenlappe.de/">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-  <!-- LocalBusiness Schema (SEO) -->
+  <!-- LocalBusiness Schema -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -27,12 +25,7 @@
     "priceRange":"€€",
     "sameAs":["https://wa.me/491739089197"],
     "serviceType":[
-      "Unterhaltsreinigung",
-      "Büroreinigung",
-      "Praxisreinigung",
-      "Glasreinigung",
-      "Grundreinigung",
-      "Umzugsreinigung"
+      "Unterhaltsreinigung","Büroreinigung","Praxisreinigung","Glasreinigung","Grundreinigung","Umzugsreinigung"
     ]
   }
   </script>
@@ -41,54 +34,59 @@
     :root{
       --brand:#f9d342;
       --muted:#c9d3e6;
-      --card:rgba(15,31,52,.66);
-      --border:rgba(30,51,80,.7);
+      --card:rgba(15,31,52,.60);
+      --border:rgba(30,51,80,.55);
+      /* تحكّم سريع بدرجة التعتيم العامة للخلفية */
+      --overlay-top: .10;  /* اللمعة العليا */
+      --overlay-mid: .06;  /* الأزرق الفاتح */
+      --overlay-grad1: .42; /* التدرج العام أعلى الصفحة */
+      --overlay-grad2: .58; /* منتصف الصفحة */
+      --overlay-grad3: .72; /* أسفل الصفحة */
     }
 
-    html{scroll-behavior:smooth; background:#081020;} /* خلفية افتراضية تحت الصور */
+    html{scroll-behavior:smooth; background:#081020;}
     *{box-sizing:border-box}
     html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#fff}
-    body{background:transparent;} /* مهم: شفاف ليظهر السلايدشو */
+    body{background:transparent;}
 
     a{color:inherit;text-decoration:none}
     .container{max-width:1080px;margin:auto;padding:0 20px}
     .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:.6rem;background:var(--brand);color:#111;font-weight:700;box-shadow:0 8px 22px rgba(249,211,66,.22);transition:.2s}
     .btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(249,211,66,.33)}
     .btn-outline{background:transparent;border:2px solid var(--brand);color:#fff}
-    .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:rgba(18,51,87,.9);color:#cde4ff;font-size:.75rem;font-weight:600;letter-spacing:.2px}
+    .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:rgba(18,51,87,.75);color:#cde4ff;font-size:.75rem;font-weight:600;letter-spacing:.2px}
 
-    /* ====== خلفية الموقع (سلايدشو يغطي الصفحة كلها) ====== */
-    .site-bg{
-      position:fixed; inset:0; z-index:0; overflow:hidden;
-      background:#081020;
-    }
+    /* ===== خلفية الصفحة (سلايدشو) ===== */
+    .site-bg{ position:fixed; inset:0; z-index:0; overflow:hidden; background:#081020; }
     .site-bg img{
       position:absolute; inset:0; width:100%; height:100%;
       object-fit:cover; object-position:center;
       opacity:0; transition:opacity 1.3s ease-in-out; will-change:opacity;
-      filter:saturate(1.05) contrast(1.06);
+      /* قللنا التأثيرات عشان ما تغمّق زيادة */
+      filter:saturate(1.03) contrast(1.03);
     }
-    .site-bg img.active{opacity:1}
+    .site-bg img.active{ opacity:1; }
 
-    /* طبقة تغميق لضمان قراءة النص */
+    /* طبقة التعتيم – خفّفناها */
     .bg-overlay{
       position:fixed; inset:0; z-index:1; pointer-events:none;
       background:
-        radial-gradient(1200px 600px at -10% -20%, rgba(249,211,66,.10), transparent 60%),
-        radial-gradient(900px 500px at 110% 10%, rgba(57,160,255,.08), transparent 55%),
-        linear-gradient(180deg, rgba(7,12,22,.62), rgba(7,12,22,.82) 40%, rgba(7,12,22,.90));
+        radial-gradient(1200px 600px at -10% -20%, rgba(249,211,66,var(--overlay-top)), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(57,160,255,var(--overlay-mid)), transparent 55%),
+        linear-gradient(180deg,
+          rgba(7,12,22,var(--overlay-grad1)),
+          rgba(7,12,22,var(--overlay-grad2)) 40%,
+          rgba(7,12,22,var(--overlay-grad3)));
     }
 
-    /* ====== صفحة المحتوى فوق الخلفية ====== */
-    .page{position:relative; z-index:2;} /* أهم سطر */
-
-    header{position:sticky;top:0;z-index:3;background:rgba(12,26,43,.82);backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
+    /* المحتوى */
+    .page{position:relative; z-index:2;}
+    header{position:sticky;top:0;z-index:3;background:rgba(12,26,43,.70);backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
     .logo{font-size:1.25rem;font-weight:800;letter-spacing:.6px}
     .nav a{opacity:.95;margin-left:1rem}
     .nav .cta{margin-left:auto}
 
-    /* ====== HERO شفاف ====== */
     .hero{padding:88px 0 60px}
     .hero h1{position:relative;display:inline-block;font-size:2.2rem;margin:.2rem 0}
     .hero h1::after{
@@ -109,7 +107,7 @@
     @media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)} .grid-2{grid-template-columns:repeat(2,1fr)}}
 
     .card{
-      background:rgba(15,31,52,.66);
+      background:var(--card);
       backdrop-filter:blur(6px);
       border:1px solid var(--border);
       border-radius:14px; padding:20px;
@@ -117,8 +115,9 @@
     }
     .card h3{margin:0 0 8px;font-size:1.1rem}
     .list{margin:10px 0 0;padding:0;list-style:none}
-    .list li{padding:6px 0;border-top:1px dashed rgba(37,64,97,.8)}
-    .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(11,26,47,.35)}
+    .list li{padding:6px 0;border-top:1px dashed rgba(37,64,97,.75)}
+    .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(11,26,47,.28)}
+
     .price{font-weight:800;color:transparent;position:relative;min-height:1.2em}
     .price::after{content:"auf Anfrage";position:absolute;inset:0 auto auto 0;color:var(--brand);font-weight:800;white-space:nowrap}
 
@@ -138,7 +137,6 @@
     footer{padding:36px 0;border-top:1px solid var(--border);color:#d1d9ea;font-size:.9rem}
     .legal{opacity:.85}
 
-    /* موبايل */
     @media(max-width:768px){
       .hero{padding:70px 0 46px}
       .floating-tools{top:10px;right:10px;gap:10px}
@@ -150,26 +148,26 @@
 
 <body>
 
-  <!-- خلفية الصفحة المتغيرة -->
+  <!-- خلفية الصفحة المتغيرة (أضفنا حمّامات/WC ومكاتب مع كمبيوترات) -->
   <div class="site-bg" aria-hidden="true">
-    <!-- مكتب نظيف -->
-    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1920&q=80" alt="" loading="eager" class="active">
-    <!-- غرفة جلوس -->
-    <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d91?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <!-- حمّام -->
+    <!-- Offices with computers -->
+    <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1920&q=80" alt="" loading="eager" class="active">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+
+    <!-- Clean bathrooms / WC -->
+    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
     <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <!-- مطبخ -->
+    <img src="https://images.unsplash.com/photo-1560448075-bb4caa6c1ad9?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+
+    <!-- Kitchen / Hall / Staircase -->
     <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <!-- سُلّم/رواق -->
     <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
-    <!-- بهو/عمارة من الداخل -->
     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
   </div>
   <div class="bg-overlay" aria-hidden="true"></div>
 
-  <!-- كل المحتوى داخل .page ليظهر فوق الخلفية -->
   <div class="page">
-
     <!-- NAV -->
     <header>
       <div class="container nav">
@@ -306,7 +304,7 @@
           <div class="card step"><h4>Angebot</h4><p>Sie erhalten ein faires Festpreis-Angebot mit Termin.</p></div>
           <div class="card step"><h4>Ausführung</h4><p>Pünktlich, gründlich, dokumentiert – auf Wunsch mit Schlüsselverwaltung.</p></div>
         </div>
-        <div style="margin-top:22px" class="card" >
+        <div style="margin-top:22px" class="card">
           <a class="btn" href="https://wa.me/491739089197?text=Ich%20brauche%20ein%20Reinigungsangebot.">💬 Angebot per WhatsApp</a>
           <a class="btn btn-outline" href="#kontakt">📩 Kontaktformular</a>
         </div>
@@ -346,7 +344,6 @@
         <div class="legal">Kleinunternehmer gem. §19 UStG (Rechnungen ohne USt). | WhatsApp: +49 173 9089197 | E-Mail: info@besenlappe.de</div>
       </div>
     </footer>
-
   </div><!-- /page -->
 
   <!-- الأدوات الطافية -->
@@ -364,7 +361,7 @@
     </svg>
   </div>
 
-  <!-- سكربت السلايدشو للخلفية العامة -->
+  <!-- سكرِبت السلايدشو -->
   <script>
   (function(){
     const bg = document.querySelector('.site-bg');
