@@ -144,7 +144,7 @@
     <img src="https://images.unsplash.com/photo-1560448075-bb4caa6c1ad9?auto=format&fit=crop&w=1920&q=80" alt="Pristine wash basin" loading="lazy">
     <img src="https://images.unsplash.com/photo-1603503361791-73f3f5a4d1ba?auto=format&fit=crop&w=1920&q=80" alt="Clean WC minimal" loading="lazy">
 
-    <!-- Kitchen / Hall / Staircase (نفس الروح النظيفة) -->
+    <!-- Kitchen / Hall / Staircase -->
     <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1920&q=80" alt="Clean kitchen" loading="lazy">
     <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1920&q=80" alt="Clean staircase" loading="lazy">
     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="Lobby interior" loading="lazy">
@@ -180,9 +180,7 @@
       </div>
     </section>
 
-    <!-- بقية الصفحة كما هي (B2B/B2C/Preise/Ablauf/Kontakt/Footer) -->
-    <!-- ... (نفس محتواك السابق تمامًا) ... -->
-
+    <!-- بقية الصفحة كما هي -->
     <section id="firmen">
       <div class="container">
         <h2>Für Unternehmen</h2>
@@ -307,14 +305,31 @@
             </p>
             <p class="sub">Einsatzgebiet: Berlin &amp; Brandenburg</p>
           </div>
+
+          <!-- نموذج Formspree -->
           <div class="card">
             <h3>Kurznachricht</h3>
-            <form action="mailto:info@besenlappe.de" method="post" enctype="text/plain">
-              <input style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px" type="text" name="name" placeholder="Ihr Name" required>
-              <input style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px" type="email" name="email" placeholder="E-Mail" required>
-              <textarea style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px" name="message" rows="5" placeholder="Objekt, Fläche, Terminwunsch"></textarea>
+            <form id="contactForm" action="https://formspree.io/f/mldwzbol" method="POST">
+              <input style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px"
+                     type="text" name="name" placeholder="Ihr Name" autocomplete="name" required>
+              <input style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px"
+                     type="email" name="email" placeholder="E-Mail" autocomplete="email" spellcheck="false" autocapitalize="off" required>
+              <textarea style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px"
+                        name="message" rows="5" placeholder="Objekt, Fläche, Terminwunsch" autocomplete="off"></textarea>
+
+              <!-- خيارات إضافية -->
+              <input type="hidden" name="_subject" value="Neue Anfrage – Website">
+              <!-- honeypot ضد السبام -->
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+              <!-- أصل الموقع (اختياري) -->
+              <input type="hidden" name="site_origin" id="site_origin">
+
               <button class="btn" type="submit">Absenden</button>
+              <p class="sub" id="formStatus" style="margin-top:8px;min-height:1.2em"></p>
             </form>
+            <p class="sub" style="opacity:.8;margin-top:6px">
+              Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer Datenschutzerklärung zu.
+            </p>
           </div>
         </div>
       </div>
@@ -343,8 +358,9 @@
     </svg>
   </div>
 
-  <!-- سكرِبت السلايدشو -->
+  <!-- سكرِبتات -->
   <script>
+  // سلايدشو الخلفية
   (function(){
     const bg = document.querySelector('.site-bg');
     if(!bg) return;
@@ -362,6 +378,45 @@
 
     show(idx); start();
     document.addEventListener('visibilitychange', ()=> document.hidden ? stop() : start(), {passive:true});
+  })();
+
+  // إرسال نموذج Formspree عبر AJAX + رسائل نجاح/خطأ
+  (function(){
+    const form = document.getElementById('contactForm');
+    if(!form) return;
+    const statusEl = document.getElementById('formStatus');
+    const originInput = document.getElementById('site_origin');
+    if(originInput) originInput.value = location.hostname;
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      statusEl.textContent = 'Senden...';
+
+      try{
+        const data = new FormData(form);
+        const resp = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (resp.ok) {
+          form.reset();
+          statusEl.textContent = 'Danke! Wir melden uns in Kürze.';
+        } else {
+          let msg = 'Fehler beim Senden. Bitte versuchen Sie es erneut.';
+          try {
+            const json = await resp.json();
+            if (json && json.errors && json.errors.length) {
+              msg = json.errors.map(e => e.message).join(', ');
+            }
+          } catch (_) {}
+          statusEl.textContent = msg;
+        }
+      } catch(err){
+        statusEl.textContent = 'Netzwerkfehler. Bitte später erneut versuchen.';
+      }
+    });
   })();
   </script>
 </body>
