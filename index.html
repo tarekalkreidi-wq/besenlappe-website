@@ -15,7 +15,18 @@
 
   <!-- LocalBusiness Schema -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"LocalBusiness","name":"BESEN & LAPPE Reinigungsservice","url":"https://besenlappe.de","telephone":"+49 173 9089197","areaServed":["Berlin","Brandenburg"],"priceRange":"€€","sameAs":["https://wa.me/491739089197"],"serviceType":["Unterhaltsreinigung","Büroreinigung","Praxisreinigung","Glasreinigung","Grundreinigung","Umzugsreinigung"]}
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"BESEN & LAPPE Reinigungsservice",
+    "url":"https://besenlappe.de",
+    "telephone":"+49 173 9089197",
+    "areaServed":["Berlin","Brandenburg"],
+    "priceRange":"€€",
+    "sameAs":["https://wa.me/491739089197"],
+    "taxID":"049/200/09447",
+    "serviceType":["Unterhaltsreinigung","Büroreinigung","Praxisreinigung","Glasreinigung","Grundreinigung","Umzugsreinigung"]
+  }
   </script>
 
   <style>
@@ -159,7 +170,7 @@
         <nav>
           <a href="#firmen">Firmen</a>
           <a href="#privat">Privat</a>
-          <a href="#preise">Preise</a>
+          <!-- حذفنا Preise -->
           <a href="#ablauf">Ablauf</a>
           <a href="#kontakt" class="btn cta">Angebot anfordern</a>
         </nav>
@@ -180,7 +191,7 @@
       </div>
     </section>
 
-    <!-- بقية الصفحة كما هي -->
+    <!-- Für Unternehmen -->
     <section id="firmen">
       <div class="container">
         <h2>Für Unternehmen</h2>
@@ -190,7 +201,7 @@
             <h3>Unterhaltsreinigung (Büro &amp; Praxis)</h3>
             <ul class="list">
               <li>tägliche / wöchentliche Reinigung</li>
-              <li>Arbeitsplätze, Sanitär, Küche, Böden</li>
+              <li>Arbeitsplätze، Sanitär، Küche، Böden</li>
               <li>Material auf Wunsch inklusive</li>
             </ul>
             <p class="price">ab 89 € / Einsatz</p>
@@ -217,10 +228,11 @@
       </div>
     </section>
 
+    <!-- Für Privatkunden -->
     <section id="privat" class="strip">
       <div class="container">
         <h2>Für Privatkunden</h2>
-        <p class="sub">Stressfrei sauber – wir kommen pünktlich und arbeiten sorgfältig.</p>
+        <p class="sub">Stressfrei sauber – wir kommen پünktlich und arbeiten sorgfältig.</p>
         <div class="grid grid-3">
           <div class="card">
             <h3>Grundreinigung Wohnung</h3>
@@ -251,6 +263,7 @@
       </div>
     </section>
 
+    <!-- Preise (القسم موجود لكن بدون رابط في الناف) -->
     <section id="preise">
       <div class="container">
         <h2>Transparente Preise</h2>
@@ -277,6 +290,7 @@
       </div>
     </section>
 
+    <!-- Ablauf -->
     <section id="ablauf" class="strip">
       <div class="container">
         <h2>So einfach läuft’s</h2>
@@ -292,6 +306,7 @@
       </div>
     </section>
 
+    <!-- Kontakt -->
     <section id="kontakt">
       <div class="container">
         <h2>Kontakt &amp; Angebot</h2>
@@ -317,11 +332,8 @@
               <textarea style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px"
                         name="message" rows="5" placeholder="Objekt, Fläche, Terminwunsch" autocomplete="off"></textarea>
 
-              <!-- خيارات إضافية -->
               <input type="hidden" name="_subject" value="Neue Anfrage – Website">
-              <!-- honeypot ضد السبام -->
               <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-              <!-- أصل الموقع (اختياري) -->
               <input type="hidden" name="site_origin" id="site_origin">
 
               <button class="btn" type="submit">Absenden</button>
@@ -338,7 +350,12 @@
     <footer>
       <div class="container">
         <div>🧹 <b>BESEN &amp; LAPPE Reinigungsservice</b> • Berlin &amp; Brandenburg</div>
-        <div class="legal">Kleinunternehmer gem. §19 UStG (Rechnungen ohne USt). | WhatsApp: +49 173 9089197 | E-Mail: info@besenlappe.de</div>
+        <div class="legal">
+          Kleinunternehmer gem. §19 UStG (Rechnungen ohne USt).
+          | Steuernummer: 049/200/09447
+          | WhatsApp: +49 173 9089197
+          | E-Mail: info@besenlappe.de
+        </div>
       </div>
     </footer>
   </div>
