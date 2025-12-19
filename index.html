@@ -187,10 +187,65 @@
 
 <section id="kontakt">
   <div class="container">
-    <h2>Kontakt</h2>
-    <p>📞 +49 173 9089197<br>✉️ info@besenlappe.de</p>
+    <h2>Kontakt & Angebot</h2>
+    <p class="sub">Antwort meist innerhalb weniger Stunden.</p>
+
+    <div class="grid grid-2">
+
+      <!-- معلومات التواصل -->
+      <div class="card">
+        <h3>Direkt</h3>
+        <p>
+          📞 <a href="tel:+491739089197">+49 173 9089197</a><br/>
+          💬 <a href="https://wa.me/491739089197">WhatsApp Chat</a><br/>
+          ✉️ <a href="mailto:info@besenlappe.de">info@besenlappe.de</a>
+        </p>
+        <p class="sub">
+          Einsatzgebiet:<br>
+          Berlin & Brandenburg (Privat)<br>
+          Deutschlandweit (Firmen & Events)
+        </p>
+      </div>
+
+      <!-- الفورم -->
+      <div class="card">
+        <h3>Kurznachricht</h3>
+
+        <form id="contactForm"
+              action="https://formspree.io/f/mldwzbol"
+              method="POST">
+
+          <input type="text" name="name" placeholder="Ihr Name"
+            required
+            style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px">
+
+          <input type="email" name="email" placeholder="E-Mail"
+            required
+            style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px">
+
+          <textarea name="message" rows="5"
+            placeholder="Art (Firma / Privat / Event) – Ort – Fläche – Termin"
+            style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px"></textarea>
+
+          <!-- حماية سبام -->
+          <input type="text" name="_gotcha" style="display:none">
+
+          <!-- عنوان الإيميل -->
+          <input type="hidden" name="_subject" value="Neue Anfrage – Website">
+
+          <button class="btn" type="submit">Absenden</button>
+          <p class="sub" id="formStatus" style="margin-top:8px;min-height:1.2em"></p>
+        </form>
+
+        <p class="sub" style="opacity:.8;margin-top:6px">
+          Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer Datenschutzerklärung zu.
+        </p>
+      </div>
+
+    </div>
   </div>
 </section>
+
 
 <footer>
   <div class="container">
@@ -212,3 +267,4 @@
 
 </body>
 </html>
+
