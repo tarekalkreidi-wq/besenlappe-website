@@ -10,7 +10,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ✅ Favicon (بدون تكرار وبدون /) -->
+  <!-- ✅ Favicon -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -271,7 +271,18 @@
         rgba(255,255,255,.06);
       backdrop-filter: blur(8px);
       box-shadow:0 14px 40px rgba(0,0,0,.35);
+
+      /* ✅ مهم للإطار واللمعة */
+      position: relative;
+      overflow: hidden;
     }
+
+    /* خلي النص فوق اللمعة */
+    .promo-clean__inner > *{
+      position: relative;
+      z-index: 1;
+    }
+
     .promo-clean__tag{
       display:inline-block;
       padding:6px 12px;
@@ -338,6 +349,83 @@
       .promo-clean__cta{flex-direction:column;}
       .promo-clean__cta .btn{width:100%;justify-content:center;}
     }
+
+    /* =========================
+       ✅ Highlight Border + Shine
+       ========================= */
+
+    /* إطار مضيء خفيف (حواف واضحة) */
+    .promo-clean__inner::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      border-radius: 24px;
+      padding: 2px;
+      background: linear-gradient(120deg,
+        rgba(230,245,255,.85),
+        rgba(170,210,255,.55),
+        rgba(230,245,255,.85)
+      );
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events:none;
+      opacity: .85;
+      z-index: 0;
+    }
+
+    /* لمعة متحركة ناعمة */
+    .promo-clean__inner::after{
+      content:"";
+      position:absolute;
+      top:-60%;
+      left:-30%;
+      width:60%;
+      height:220%;
+      background: linear-gradient(90deg,
+        transparent,
+        rgba(230,245,255,.22),
+        transparent
+      );
+      transform: rotate(18deg);
+      animation: offerShine 4.2s ease-in-out infinite;
+      pointer-events:none;
+      opacity:.9;
+      z-index: 0;
+    }
+
+    @keyframes offerShine{
+      0%{ transform: translateX(-40%) rotate(18deg); opacity:.2; }
+      45%{ opacity:.9; }
+      100%{ transform: translateX(220%) rotate(18deg); opacity:.2; }
+    }
+
+    /* نبضة خفيفة لقسم العروض */
+    .promo-clean{
+      animation: offerPulse 3.2s ease-in-out infinite;
+    }
+    @keyframes offerPulse{
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-2px); }
+    }
+
+    /* Ribbon */
+    .promo-clean__ribbon{
+      position:absolute;
+      top:14px;
+      right:-46px;
+      transform: rotate(35deg);
+      background: rgba(230,245,255,.95);
+      color:#0b1a2f;
+      font-weight: 900;
+      letter-spacing:.4px;
+      padding: 8px 70px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+      border:1px solid rgba(185,215,255,.55);
+      z-index: 2;
+      pointer-events:none;
+    }
   </style>
 </head>
 
@@ -393,6 +481,10 @@
   <!-- Cleanes Aktionsangebot -->
   <section class="promo-clean" aria-label="Aktionsangebot">
     <div class="promo-clean__inner container">
+
+      <!-- ✅ Ribbon -->
+      <div class="promo-clean__ribbon">ANGEBOT</div>
+
       <div class="promo-clean__tag">AKTION</div>
 
       <h2 class="promo-clean__title">
