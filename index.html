@@ -232,27 +232,13 @@
     }
     textarea{min-height:120px; resize:vertical}
 
-    .form-status{
-      margin-top:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(185,215,255,.30);
-      background: rgba(255,255,255,.06);
-      color: var(--muted);
-      display:none;
-      line-height:1.5;
+    /* ✅ أزرار بديلة */
+    .fallback-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
     }
-    .form-status.ok{
-      border-color: rgba(37,211,102,.45);
-      color: rgba(220,255,235,.95);
-    }
-    .form-status.err{
-      border-color: rgba(255,120,120,.55);
-      color: rgba(255,225,225,.95);
-    }
-
-    /* ✅ زر الإيميل يظهر فقط عند الفشل */
-    .fallback-row{display:none; gap:10px; flex-wrap:wrap; margin-top:8px;}
     .fallback-row a.btn{white-space:nowrap;}
 
     footer{
@@ -268,132 +254,6 @@
       .grid-3{grid-template-columns:1fr}
       .contact-box{grid-template-columns:1fr}
       .links{display:none}
-    }
-
-    /* CLEAN OFFER (Aktion) */
-    .promo-clean{margin:18px 0 28px;}
-    .promo-clean__inner{
-      border-radius:22px;
-      padding:22px;
-      border:1px solid rgba(185,215,255,.35);
-      background:
-        radial-gradient(900px 380px at 20% 10%, rgba(170,210,255,.22), transparent 60%),
-        radial-gradient(900px 380px at 80% 90%, rgba(255,255,255,.10), transparent 60%),
-        rgba(255,255,255,.06);
-      backdrop-filter: blur(8px);
-      box-shadow:0 14px 40px rgba(0,0,0,.35);
-      position: relative;
-      overflow: hidden;
-    }
-    .promo-clean__inner > *{position: relative; z-index: 1;}
-    .promo-clean__tag{
-      display:inline-block;
-      padding:6px 12px;
-      border-radius:999px;
-      background:rgba(160,205,255,.15);
-      border:1px solid rgba(185,215,255,.35);
-      font-weight:800;
-      letter-spacing:.3px;
-      color:#eaf4ff;
-      margin-bottom:10px;
-    }
-    .promo-clean__title{
-      margin:6px 0 8px;
-      font-size:clamp(18px,2.4vw,26px);
-      line-height:1.25;
-    }
-    .promo-clean__title .old{opacity:.7;text-decoration:line-through;}
-    .promo-clean__title .new{font-weight:900;color:#cde9ff;}
-    .promo-clean__pill{
-      display:inline-flex;
-      margin-left:10px;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:.9rem;
-      font-weight:900;
-      color:#0b1a2f;
-      background:rgba(230,245,255,.95);
-    }
-    .promo-clean__sub{margin:0;color:var(--muted);line-height:1.55;max-width:900px;}
-    .promo-clean__cta{
-      margin-top:12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .promo-clean__btn{border-radius:14px;}
-    .promo-clean__note{
-      margin-top:10px;
-      font-size:12px;
-      opacity:.72;
-      line-height:1.4;
-      color:var(--muted);
-    }
-    @media(max-width:520px){
-      .promo-clean__cta{flex-direction:column;}
-      .promo-clean__cta .btn{width:100%;justify-content:center;}
-    }
-    .promo-clean__inner::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      border-radius: 24px;
-      padding: 2px;
-      background: linear-gradient(120deg,
-        rgba(230,245,255,.85),
-        rgba(170,210,255,.55),
-        rgba(230,245,255,.85)
-      );
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events:none;
-      opacity: .85;
-      z-index: 0;
-    }
-    .promo-clean__inner::after{
-      content:"";
-      position:absolute;
-      top:-60%;
-      left:-30%;
-      width:60%;
-      height:220%;
-      background: linear-gradient(90deg,
-        transparent,
-        rgba(230,245,255,.22),
-        transparent
-      );
-      transform: rotate(18deg);
-      animation: offerShine 4.2s ease-in-out infinite;
-      pointer-events:none;
-      opacity:.9;
-      z-index: 0;
-    }
-    @keyframes offerShine{
-      0%{ transform: translateX(-40%) rotate(18deg); opacity:.2; }
-      45%{ opacity:.9; }
-      100%{ transform: translateX(220%) rotate(18deg); opacity:.2; }
-    }
-    .promo-clean{animation: offerPulse 3.2s ease-in-out infinite;}
-    @keyframes offerPulse{
-      0%,100%{ transform: translateY(0); }
-      50%{ transform: translateY(-2px); }
-    }
-    .promo-clean__ribbon{
-      position:absolute;
-      top:14px;
-      right:-46px;
-      transform: rotate(35deg);
-      background: rgba(230,245,255,.95);
-      color:#0b1a2f;
-      font-weight: 900;
-      letter-spacing:.4px;
-      padding: 8px 70px;
-      border-radius: 999px;
-      box-shadow: 0 10px 24px rgba(0,0,0,.25);
-      border:1px solid rgba(185,215,255,.55);
-      z-index: 2;
-      pointer-events:none;
     }
   </style>
 </head>
@@ -447,96 +307,6 @@
     </div>
   </section>
 
-  <section class="promo-clean" aria-label="Aktionsangebot">
-    <div class="promo-clean__inner container">
-      <div class="promo-clean__ribbon">ANGEBOT</div>
-      <div class="promo-clean__tag">AKTION</div>
-
-      <h2 class="promo-clean__title">
-        Stundenreinigung: <span class="old">25 €</span> → <span class="new">18 €</span>
-        <span class="promo-clean__pill">−7 € / −28%</span>
-      </h2>
-
-      <p class="promo-clean__sub">
-        Unsere Stunde kostete <strong>25 €</strong> und ist jetzt nur <strong>18 €</strong>.
-        Sie sparen <strong>7 €</strong> – das sind <strong>28% Rabatt</strong>.
-        Gültig bis <strong>07.01., 23:59</strong>.
-      </p>
-
-      <div class="promo-clean__cta">
-        <a class="btn promo-clean__btn"
-           href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20m%C3%B6chte%20die%20Aktion%20(18%E2%82%AC%2FStunde)%20buchen.%20Ort%3A%20____%20%7C%20Termin%3A%20____"
-           target="_blank" rel="noopener">
-          💬 Jetzt per WhatsApp anfragen
-        </a>
-        <a class="btn btn-outline promo-clean__btn" href="#kontakt">✉️ Kontakt</a>
-      </div>
-
-      <p class="promo-clean__note">
-        *Mindestdauer 2 Stunden · Berlin & Brandenburg · Gültig bis 07.01., 23:59
-      </p>
-    </div>
-  </section>
-
-  <section id="leistungen" class="strip">
-    <div class="container">
-      <h2>Leistungen</h2>
-      <p class="sub">Kurz & klar – sauber, zuverlässig, professionell.</p>
-
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Firmenreinigung</h3>
-          <ul>
-            <li>Büroreinigung</li>
-            <li>Praxen & Gewerbe</li>
-            <li>Regelmäßig oder einmalig</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Privatreinigung</h3>
-          <ul>
-            <li>Haushalte & Wohnungen</li>
-            <li>Treppenhaus (auf Wunsch)</li>
-            <li>Nach Bedarf</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Glas & Details</h3>
-          <ul>
-            <li>Fenster & Glasflächen</li>
-            <li>Küche / Sanitär</li>
-            <li>Feinarbeiten</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="events" class="strip">
-    <div class="container">
-      <h2>Eventreinigung</h2>
-      <p class="sub">
-        Wir unterstützen auch Events – vor, während oder nach der Veranstaltung.
-        Diskret, schnell und zuverlässig.
-      </p>
-
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Vor dem Event</h3>
-          <p class="sub">Vorbereitung & letzter Feinschliff.</p>
-        </div>
-        <div class="card">
-          <h3>Während des Events</h3>
-          <p class="sub">Zwischenreinigung nach Bedarf (z. B. Sanitär).</p>
-        </div>
-        <div class="card">
-          <h3>Nach dem Event</h3>
-          <p class="sub">Schnelle Endreinigung – alles wieder sauber.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="kontakt" class="strip">
     <div class="container">
       <h2>Kontakt</h2>
@@ -562,21 +332,26 @@
         <div class="card">
           <h3>Kontaktformular</h3>
 
-          <!-- ✅ Formspree Endpoint -->
-          <form id="contactForm" action="https://formspree.io/f/xqazqgnd" method="POST">
+          <!-- ✅ Formspree بدون JavaScript (أضمن حل) -->
+          <form action="https://formspree.io/f/xqazqgnd" method="POST">
             <input type="text" name="name" placeholder="Ihr Name" required>
             <input type="email" name="email" placeholder="Ihre E-Mail" required>
             <textarea name="message" placeholder="Ihre Nachricht (Ort, Datum, Art der Reinigung)..." required></textarea>
-            <button class="btn" type="submit" id="sendBtn">Anfrage senden</button>
 
-            <!-- ✅ حالة الإرسال -->
-            <div class="form-status" id="formStatus"></div>
+            <!-- ✅ Formspree Options -->
+            <input type="hidden" name="_subject" value="Neue Anfrage über besenlappe.de">
+            <input type="hidden" name="_replyto" value="%email%">
+            <input type="hidden" name="_captcha" value="false">
 
-            <!-- ✅ بديل الإيميل: يظهر عند الفشل (لا نعتمد على فتح تلقائي) -->
-            <div class="fallback-row" id="fallbackRow">
-              <a class="btn btn-outline" id="emailFallbackBtn" href="#" rel="noopener">
+            <button class="btn" type="submit">Anfrage senden</button>
+
+            <!-- ✅ بدائل دائمة (حتى لو Formspree تعطل) -->
+            <div class="fallback-row">
+              <a class="btn btn-outline"
+                 href="mailto:info@besenlappe.de?cc=tarekalkreidi@gmail.com&subject=Anfrage%20%C3%BCber%20besenlappe.de&body=Hallo%2C%0A%0AName%3A%20%0AE-Mail%3A%20%0A%0ANachricht%3A%0A%0A---%0AGesendet%20%C3%BCber%20besenlappe.de">
                 ✉️ E-Mail öffnen
               </a>
+
               <a class="btn btn-outline"
                  href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen.%20Ort%3A%20____%20%7C%20Termin%3A%20____"
                  target="_blank" rel="noopener">
@@ -586,7 +361,7 @@
           </form>
 
           <p class="sub" style="margin-top:10px; font-size:13px; opacity:.75;">
-            Hinweis: Falls das Formular nicht sendet, können Sie per WhatsApp oder über den E-Mail-Button anfragen.
+            Hinweis: Falls das Formular nicht sendet, können Sie per WhatsApp oder über E-Mail anfragen.
           </p>
         </div>
       </div>
@@ -609,112 +384,7 @@
 </footer>
 
 <script>
-  // ✅ سنة الفوتر
   document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-<script>
-  /**
-   * ✅ Kontaktformular:
-   * - يحاول يرسل على Formspree عن طريق fetch (بدون ريفريش للصفحة)
-   * - إذا فشل: نظهر زر "E-Mail öffnen" (المستخدم يضغطه بنفسه)
-   *
-   * ملاحظة: فتح mailto تلقائيًا بعد fetch ممكن ينمنع في بعض المتصفحات
-   * لذلك عملنا زر ضغط مباشر (أضمن).
-   */
-  (function(){
-    const form = document.getElementById("contactForm");
-    const statusEl = document.getElementById("formStatus");
-    const btn = document.getElementById("sendBtn");
-
-    const fallbackRow = document.getElementById("fallbackRow");
-    const emailFallbackBtn = document.getElementById("emailFallbackBtn");
-
-    // ✅ الإيميلات
-    const COMPANY_EMAIL = "info@besenlappe.de";      // الشركة
-    const OWNER_EMAIL   = "tarekalkreidi@gmail.com"; // إيميلك
-
-    if(!form) return;
-
-    function setStatus(type, msg){
-      statusEl.style.display = "block";
-      statusEl.className = "form-status " + (type || "");
-      statusEl.textContent = msg;
-    }
-
-    // ✅ نبني رابط mailto بشكل متوافق (To + CC)
-    function buildMailto(dataObj){
-      const subject = "Anfrage über besenlappe.de";
-      const body =
-`Name: ${dataObj.name || ""}
-E-Mail: ${dataObj.email || ""}
-
-Nachricht:
-${dataObj.message || ""}
-
-—
-Gesendet über besenlappe.de`;
-
-      // to = الشركة، cc = إيميلك (أفضل من فاصلة , لأن بعض البرامج لا تدعمها)
-      const mailto =
-        `mailto:${encodeURIComponent(COMPANY_EMAIL)}` +
-        `?cc=${encodeURIComponent(OWNER_EMAIL)}` +
-        `&subject=${encodeURIComponent(subject)}` +
-        `&body=${encodeURIComponent(body)}`;
-
-      return mailto;
-    }
-
-    function showFallback(mailtoLink){
-      // ✅ إظهار صف الأزرار
-      fallbackRow.style.display = "flex";
-      // ✅ وضع الرابط داخل زر الإيميل
-      emailFallbackBtn.href = mailtoLink;
-    }
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      // نخفي البديل كل مرة
-      fallbackRow.style.display = "none";
-
-      const data = new FormData(form);
-      const dataObj = {
-        name: (data.get("name") || "").toString(),
-        email: (data.get("email") || "").toString(),
-        message: (data.get("message") || "").toString()
-      };
-
-      const mailtoLink = buildMailto(dataObj);
-
-      setStatus("", "Senden... bitte warten.");
-      btn.disabled = true;
-
-      try{
-        // ✅ إرسال لـ Formspree
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: data,
-          headers: { "Accept": "application/json" }
-        });
-
-        if(res.ok){
-          setStatus("ok", "✅ Vielen Dank! Ihre Anfrage wurde gesendet. Wir melden uns schnell zurück.");
-          form.reset();
-        } else {
-          // ❌ Formspree رفض
-          setStatus("err", "❌ Leider konnte die Anfrage nicht gesendet werden. Bitte nutzen Sie WhatsApp oder öffnen Sie die E-Mail.");
-          showFallback(mailtoLink);
-        }
-      }catch(err){
-        // ❌ مشكلة شبكة / بلوك
-        setStatus("err", "❌ Netzwerkproblem. Bitte nutzen Sie WhatsApp oder öffnen Sie die E-Mail.");
-        showFallback(mailtoLink);
-      }finally{
-        btn.disabled = false;
-      }
-    });
-  })();
 </script>
 
 </body>
