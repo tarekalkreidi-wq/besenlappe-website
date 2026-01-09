@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <!-- Google / Social Preview Image -->
-  <meta property="og:image" content="https://besenlappe.de/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ✅ Favicon -->
+  <!-- ✅ Favicon (بدون تكرار وبدون /) -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -18,374 +12,562 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#25D366">
 
-  <title>BESEN & LAPPE Reinigungsservice | Firmen & Privat | Berlin & Brandenburg</title>
-  <meta name="description"
-        content="BESEN & LAPPE Reinigungsservice – professionelle Gebäudereinigung für Firmen & Privat in Berlin & Brandenburg. Büros, Treppenhäuser, Haushalte & Events. Schnelle Anfrage per WhatsApp." />
-  <link rel="canonical" href="https://besenlappe.de/" />
-  <meta name="robots" content="index, follow" />
+  <title>BESEN & LAPPE Reinigungsservice | Firmen, Privat & Events</title>
+  <meta name="description" content="Professionelle Reinigung für Firmen, Privat & Events. Schnell, zuverlässig, diskret. Anfrage in 60 Sekunden per WhatsApp oder Formular." />
+  <meta name="robots" content="index,follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="BESEN & LAPPE Reinigungsservice | Berlin & Brandenburg" />
-  <meta property="og:description"
-        content="Professionelle Reinigung für Firmen & Privat. Büros, Treppenhäuser, Haushalte & Events. Schnell per WhatsApp anfragen." />
-  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BESEN & LAPPE Reinigungsservice" />
+  <meta property="og:description" content="Reinigung für Firmen, Privat & Events. Schnell, zuverlässig, diskret." />
   <meta property="og:url" content="https://besenlappe.de/" />
+  <meta property="og:type" content="website" />
+
+  <link rel="canonical" href="https://besenlappe.de/">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
   <!-- LocalBusiness Schema -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "BESEN & LAPPE Reinigungsservice",
-    "url": "https://besenlappe.de",
-    "image": "https://besenlappe.de/og-image.png",
-    "telephone": "+49 173 9089197",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Berlin",
-      "addressRegion": "Berlin/Brandenburg",
-      "addressCountry": "DE"
-    },
-    "areaServed": ["Berlin", "Brandenburg"],
-    "description": "Professionelle Gebäudereinigung für Firmen & Privat in Berlin & Brandenburg. Büros, Treppenhäuser, Haushalte & Events."
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"BESEN & LAPPE Reinigungsservice",
+    "url":"https://besenlappe.de",
+    "telephone":"+49 173 9089197",
+    "areaServed":["Germany","Berlin","Brandenburg"],
+    "priceRange":"€€",
+    "sameAs":["https://wa.me/491739089197"],
+    "serviceType":[
+      "Unterhaltsreinigung",
+      "Büroreinigung",
+      "Praxisreinigung",
+      "Privatreinigung",
+      "Eventreinigung",
+      "Glasreinigung",
+      "Grundreinigung",
+      "Umzugsreinigung"
+    ]
   }
   </script>
 
   <style>
     :root{
-      --bg1:#0a1424;
-      --bg2:#0b1b33;
-      --card: rgba(255,255,255,.06);
-      --line: rgba(255,255,255,.12);
-      --text:#f3f8ff;
-      --muted: rgba(240,248,255,.78);
       --brand:#25D366;
-      --brand2:#89bfff;
+      --muted:#c9d3e6;
+      --border:rgba(30,51,80,.55);
+
+      --overlay-top:.08;
+      --overlay-mid:.05;
+      --overlay-grad1:.34;
+      --overlay-grad2:.50;
+      --overlay-grad3:.64;
     }
 
+    html{scroll-behavior:smooth; background:#081020;}
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 420px at 20% 10%, rgba(137,191,255,.18), transparent 60%),
-        radial-gradient(900px 420px at 80% 90%, rgba(37,211,102,.10), transparent 60%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      min-height:100vh;
-      overflow-x:hidden;
-    }
+    html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#fff}
+    body{background:transparent;}
 
     a{color:inherit;text-decoration:none}
-    .container{width:min(1100px, calc(100% - 32px)); margin:0 auto}
-
-    header{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter: blur(10px);
-      background: rgba(10,20,36,.6);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
-    }
-    .logo{
-      display:flex; align-items:center; gap:10px;
-      font-weight:900;
-      letter-spacing:.2px;
-    }
-    .logo img{width:40px;height:40px;border-radius:12px}
-    .links{display:flex; gap:14px; flex-wrap:wrap}
-    .links a{
-      padding:8px 10px;
-      border-radius:12px;
-      color:var(--muted);
-      border:1px solid transparent;
-    }
-    .links a:hover{
-      border-color: rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-    }
+    .container{max-width:1080px;margin:auto;padding:0 20px}
 
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight:800;
-      cursor:pointer;
-      transition:.15s ease;
+      display:inline-flex;align-items:center;gap:.5rem;
+      padding:.9rem 1.2rem;border-radius:.7rem;
+      background:var(--brand);color:#111;font-weight:800;
+      box-shadow:0 8px 22px rgba(37,211,102,.25);
+      transition:.2s
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10)}
-    .btn-outline{
-      background: transparent;
-      border-color: rgba(255,255,255,.16);
-    }
-    .btn-whatsapp{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:50;
-      width:56px;
-      height:56px;
-      border-radius:999px;
-      background: rgba(37,211,102,.18);
-      border: 1px solid rgba(37,211,102,.45);
-      box-shadow: 0 0 18px rgba(37,211,102,.45);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      animation: glow 2.2s ease-in-out infinite;
-    }
-    .btn-whatsapp span{font-size:22px}
-    @keyframes glow{
-      0%,100%{box-shadow:0 0 14px rgba(37,211,102,.35)}
-      50%{box-shadow:0 0 26px rgba(37,211,102,.65)}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(37,211,102,.35)}
+    .btn-outline{background:transparent;border:2px solid var(--brand);color:#fff}
+
+    .badge{
+      display:inline-block;padding:.25rem .55rem;border-radius:999px;
+      background:rgba(18,51,87,.68);color:#cde4ff;
+      font-size:.75rem;font-weight:650;letter-spacing:.2px
     }
 
-    section{padding:40px 0}
-    .strip{padding:44px 0}
-    h1,h2{margin:0 0 10px}
-    p{margin:10px 0}
-    .sub{color:var(--muted); line-height:1.6}
+    /* خلفية الصفحة (سلايدشو) */
+    .site-bg{ position:fixed; inset:0; z-index:0; overflow:hidden; background:#081020; }
+    .site-bg img{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; object-position:center;
+      opacity:0; transition:opacity 1.3s ease-in-out; will-change:opacity;
+      filter:saturate(1.03) contrast(1.04);
+    }
+    .site-bg img.active{ opacity:1; }
 
-    .hero{padding:52px 0 30px;}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:22px;
-      align-items:center;
+    /* طبقة التعتيم */
+    .bg-overlay{
+      position:fixed; inset:0; z-index:1; pointer-events:none;
+      background:
+        radial-gradient(1200px 600px at -10% -20%, rgba(37,211,102,var(--overlay-top)), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(57,160,255,var(--overlay-mid)), transparent 55%),
+        linear-gradient(180deg,
+          rgba(7,12,22,var(--overlay-grad1)),
+          rgba(7,12,22,var(--overlay-grad2)) 40%,
+          rgba(7,12,22,var(--overlay-grad3)));
     }
-    .hero-card{
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 22px;
-      padding: 22px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+
+    .page{position:relative; z-index:2;}
+    header{
+      position:sticky;top:0;z-index:3;
+      background:rgba(12,26,43,.70);
+      backdrop-filter:blur(6px);
+      border-bottom:1px solid var(--border)
     }
-    .hero h1{font-size: clamp(26px, 3.2vw, 44px); line-height:1.15}
-    .hero .kpis{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top:14px;
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+    .logo{font-size:1.25rem;font-weight:900;letter-spacing:.6px}
+    .nav a{opacity:.95;margin-left:1rem}
+    .nav .cta{margin-left:auto}
+
+    .hero{padding:86px 0 48px}
+    .hero h1{font-size:2.05rem;margin:.2rem 0}
+    .hero p{color:var(--muted);max-width:760px;margin:.6rem 0 0}
+    .hero-actions{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+
+    section{padding:42px 0}
+    h2{font-size:1.55rem;margin:0 0 10px}
+    .sub{color:var(--muted);margin:0 0 22px}
+    .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(11,26,47,.24)}
+
+    /* ===== ✅ Clean services (بدون جداول/كروت طويلة) ===== */
+    .services-wrap{display:grid;gap:18px}
+    @media(min-width:900px){.services-wrap{grid-template-columns:1.1fr .9fr;align-items:start}}
+
+    .service-list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+    .service-item{
+      display:flex;gap:12px;align-items:flex-start;
+      padding:14px 14px;border-radius:14px;
+      background:rgba(10,22,38,.55);
+      border:1px solid rgba(30,51,80,.45);
+      backdrop-filter:blur(6px);
     }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-weight:700;
-      font-size: 13px;
+    .service-icon{
+      width:38px;height:38px;flex:0 0 38px;
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(37,211,102,.14);
+      border:1px solid rgba(37,211,102,.28);
+      font-size:18px;
     }
-    .hero-media{
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.12);
-      overflow:hidden;
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
-      background: rgba(255,255,255,.03);
-      min-height: 320px;
+    .service-item h3{margin:0;font-size:1.03rem}
+    .service-item p{margin:4px 0 0;color:var(--muted);line-height:1.35}
+
+    .trust-box{
+      padding:18px;border-radius:16px;
+      background:rgba(12,26,43,.62);
+      border:1px solid rgba(30,51,80,.55);
+      backdrop-filter:blur(6px);
+    }
+    .trust-box h3{margin:0 0 10px}
+    .trust-points{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+    .trust-points li{display:flex;gap:10px;align-items:flex-start;color:#eaf2ff}
+    .trust-check{
+      width:22px;height:22px;border-radius:999px;
+      background:rgba(37,211,102,.18);
+      border:1px solid rgba(37,211,102,.35);
+      display:flex;align-items:center;justify-content:center;
+      font-size:14px;line-height:1;flex:0 0 22px;
+    }
+
+    .section-cta{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
+
+    /* Ablauf بسيط */
+    .steps-clean{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+    .step-row{
+      display:flex;gap:12px;align-items:flex-start;
+      padding:14px 14px;border-radius:14px;
+      background:rgba(10,22,38,.55);
+      border:1px solid rgba(30,51,80,.45);
+      backdrop-filter:blur(6px);
+    }
+    .step-num{
+      width:34px;height:34px;border-radius:12px;flex:0 0 34px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(57,160,255,.14);
+      border:1px solid rgba(57,160,255,.28);
+      font-weight:900;
+    }
+    .step-row h4{margin:0;font-size:1.02rem}
+    .step-row p{margin:4px 0 0;color:var(--muted);line-height:1.35}
+
+    footer{padding:34px 0;border-top:1px solid var(--border);color:#d1d9ea;font-size:.9rem}
+    .legal{opacity:.85}
+
+    /* أدوات طافية */
+    .floating-tools{
+      position:fixed; top:18px; right:18px; z-index:4; display:flex; gap:14px;
+      pointer-events:none; opacity:.95; filter:drop-shadow(0 8px 18px rgba(0,0,0,.28));
+    }
+    .broom{width:90px;height:90px;transform-origin:top center;animation:broom-sway 4.2s ease-in-out infinite}
+    .cloth{width:72px;height:72px;animation:cloth-float 5s ease-in-out infinite}
+    @keyframes broom-sway{0%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(5deg) translateY(-3px)}100%{transform:rotate(-5deg) translateY(0)}}
+    @keyframes cloth-float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+
+    /* WhatsApp */
+    .whatsapp-float{
+      position:fixed; right:22px; bottom:22px;
+      width:64px; height:64px;
+      background:#25D366; border-radius:50%;
       display:flex; align-items:center; justify-content:center;
+      z-index:9999;
+      box-shadow:0 12px 30px rgba(37,211,102,.45);
+      animation:wa-bounce 1.8s infinite;
     }
-    .hero-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      opacity:.92;
+    .whatsapp-float::before{
+      content:""; position:absolute; inset:0; border-radius:50%;
+      background:rgba(37,211,102,.40);
+      animation:wa-pulse 1.6s infinite;
     }
+    .wa-icon{width:30px;height:30px;color:#fff;position:relative;}
+    @keyframes wa-pulse{0%{transform:scale(1);opacity:.7}70%{transform:scale(1.7);opacity:0}100%{transform:scale(1.7);opacity:0}}
+    @keyframes wa-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
-    .grid{display:grid; gap:14px;}
-    .grid-3{grid-template-columns:repeat(3, minmax(0, 1fr))}
-    .card{
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: 0 12px 34px rgba(0,0,0,.28);
-    }
-    .card h3{margin:0 0 8px}
-    .card ul{margin:10px 0 0; padding-left:18px; color: var(--muted); line-height:1.6}
+    /* Mobile */
+    @media (max-width: 768px){
+      .container{ padding: 0 16px; }
 
-    .contact-box{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-    }
-    .contact-box .card{height:100%}
-    form{display:grid; gap:10px}
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      color: var(--text);
-      outline:none;
-    }
-    textarea{min-height:120px; resize:vertical}
+      header .nav{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 12px 0;
+      }
+      header nav{display:flex;flex-wrap:wrap;gap:10px;width:100%;}
+      header nav a{
+        margin-left:0 !important;
+        padding:8px 10px;
+        border-radius:10px;
+        background:rgba(15,31,52,.35);
+        border:1px solid rgba(30,51,80,.35);
+      }
+      header nav a.btn{width:100%;justify-content:center;}
 
-    /* ✅ أزرار بديلة */
-    .fallback-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:8px;
-    }
-    .fallback-row a.btn{white-space:nowrap;}
+      .hero{padding:70px 0 42px}
+      .hero h1{font-size:1.7rem; line-height:1.2}
 
-    footer{
-      padding:30px 0;
-      border-top:1px solid rgba(255,255,255,.10);
-      color: var(--muted);
-      font-size: 14px;
-    }
+      .hero-actions{flex-direction:column;align-items:stretch;gap:10px;}
+      .hero-actions .btn, .hero-actions .btn-outline{width:100%;justify-content:center;}
 
-    @media(max-width: 900px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero-media{min-height:260px}
-      .grid-3{grid-template-columns:1fr}
-      .contact-box{grid-template-columns:1fr}
-      .links{display:none}
+      .floating-tools{ top:10px; right:10px; gap:10px; }
+      .broom{width:62px;height:62px}
+      .cloth{width:52px;height:52px}
+
+      .section-cta{flex-direction:column}
+      .section-cta .btn, .section-cta .btn-outline{width:100%;justify-content:center}
+
+      .whatsapp-float{width:58px;height:58px;right:16px;bottom:16px;}
+      .wa-icon{width:28px;height:28px}
     }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="container nav">
-    <div class="logo">
-      <img src="apple-touch-icon.png" alt="Besen & Lappe Logo">
-      <div>BESEN & LAPPE</div>
-    </div>
-
-    <nav class="links">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#events">Events</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-
-    <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen.%20Bitte%20Terminvorschl%C3%A4ge%20senden."
-       target="_blank" rel="noopener">WhatsApp</a>
+  <!-- خلفية الصفحة المتغيرة -->
+  <div class="site-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" alt="Clean open office" loading="eager" class="active">
+    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=80" alt="Office desks" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1507209696998-3c532be9b2b6?auto=format&fit=crop&w=1920&q=80" alt="Workspace" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1920&q=80" alt="Modern office" loading="lazy">
   </div>
-</header>
+  <div class="bg-overlay" aria-hidden="true"></div>
 
-<main>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-card">
-        <h1>BESEN & LAPPE Reinigungsservice</h1>
-        <p class="sub">
-          Professionelle Gebäudereinigung für <strong>Firmen</strong> & <strong>Privat</strong>
-          in <strong>Berlin & Brandenburg</strong> – inkl. <strong>Eventreinigung</strong>.
-          Schnell anfragen & zuverlässig reinigen lassen.
-        </p>
+  <div class="page">
+    <!-- NAV -->
+    <header>
+      <div class="container nav">
+        <div class="logo">🧹 <span style="color:var(--brand)">BESEN &amp; LAPPE</span></div>
+        <nav>
+          <a href="#firmen">Firmen</a>
+          <a href="#privat">Privat</a>
+          <a href="#ablauf">Ablauf</a>
+          <a href="#kontakt" class="btn cta">Angebot anfordern</a>
+        </nav>
+      </div>
+    </header>
 
-        <div class="kpis">
-          <span class="pill">✅ Zuverlässig</span>
-          <span class="pill">✅ Sauber & gründlich</span>
-          <span class="pill">✅ Schnelle Kommunikation</span>
-          <span class="pill">✅ Rechnung möglich</span>
-        </div>
-
-        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn" href="#kontakt">Kontakt</a>
-          <a class="btn btn-outline" href="#leistungen">Leistungen</a>
+    <!-- HERO (مختصر) -->
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="badge">Firmen &amp; Events: Deutschlandweit • Privat: Berlin &amp; Brandenburg</span>
+        <h1>Saubere Räume. Klare Standards. Schnelle Termine.</h1>
+        <p>Reinigung für Unternehmen, Privat &amp; Events – zuverlässig, diskret und unkompliziert.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20brauche%20eine%20Reinigung.%20Art%3A%20Firma%2FPrivat%2FEvent%20%7C%20Ort%3A%20____%20%7C%20Termin%3A%20____">💬 WhatsApp</a>
+          <a class="btn btn-outline" href="#kontakt">📩 Anfrage senden</a>
+          <a class="btn btn-outline" href="tel:+491739089197">📞 Anrufen</a>
         </div>
       </div>
+    </section>
 
-      <div class="hero-media">
-        <img src="og-image.png" alt="Besen & Lappe Reinigung">
-      </div>
-    </div>
-  </section>
+    <!-- Firmen -->
+    <section id="firmen">
+      <div class="container">
+        <h2>Für Unternehmen</h2>
+        <p class="sub">Kurz, klar, professionell – wir kümmern uns um die Sauberkeit.</p>
 
-  <section id="kontakt" class="strip">
-    <div class="container">
-      <h2>Kontakt</h2>
-      <p class="sub">Senden Sie uns kurz Ihre Anfrage – wir melden uns schnell zurück.</p>
+        <div class="services-wrap">
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon">🏢</div>
+              <div>
+                <h3>Büro- & Unterhaltsreinigung</h3>
+                <p>Arbeitsplätze, Sanitär, Küche, Böden – nach Plan.</p>
+              </div>
+            </li>
 
-      <div class="contact-box">
-        <div class="card">
-          <h3>Direkt per WhatsApp</h3>
-          <p class="sub">Schnell & einfach – schreiben Sie uns.</p>
+            <li class="service-item">
+              <div class="service-icon">🪟</div>
+              <div>
+                <h3>Glas- & Rahmenreinigung</h3>
+                <p>Innen & Außen – klar und streifenfrei.</p>
+              </div>
+            </li>
 
-          <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen.%20Ort%3A%20____%20%7C%20Termin%3A%20____"
-             target="_blank" rel="noopener">WhatsApp öffnen</a>
+            <li class="service-item">
+              <div class="service-icon">🎉</div>
+              <div>
+                <h3>Eventreinigung</h3>
+                <p>Vor, während & nach Events – flexibel am Abend/WE.</p>
+              </div>
+            </li>
 
-          <p class="sub" style="margin-top:10px;">Telefon: +49 173 9089197</p>
+            <li class="service-item">
+              <div class="service-icon">🧱</div>
+              <div>
+                <h3>Bau- & Grundreinigung</h3>
+                <p>Nach Renovierung/Umzug – gründlich & strukturiert.</p>
+              </div>
+            </li>
+          </ul>
 
-          <p class="sub" style="margin-top:8px;">
-            E-Mail:
-            <a href="mailto:info@besenlappe.de">info@besenlappe.de</a> ·
-            <a href="mailto:tarekalkreidi@gmail.com">tarekalkreidi@gmail.com</a>
-          </p>
-        </div>
+          <div class="trust-box">
+            <h3>Warum BESEN &amp; LAPPE?</h3>
+            <ul class="trust-points">
+              <li><span class="trust-check">✓</span><span>Schnelle Rückmeldung & klare Kommunikation</span></li>
+              <li><span class="trust-check">✓</span><span>Diskret, zuverlässig, saubere Standards</span></li>
+              <li><span class="trust-check">✓</span><span>Privat: Berlin/Brandenburg • Firmen/Events: deutschlandweit nach Projekt</span></li>
+            </ul>
 
-        <div class="card">
-          <h3>Kontaktformular</h3>
-
-          <!-- ✅ Formspree بدون JavaScript (أضمن حل) -->
-          <form action="https://formspree.io/f/xqazqgnd" method="POST">
-            <input type="text" name="name" placeholder="Ihr Name" required>
-            <input type="email" name="email" placeholder="Ihre E-Mail" required>
-            <textarea name="message" placeholder="Ihre Nachricht (Ort, Datum, Art der Reinigung)..." required></textarea>
-
-            <!-- ✅ Formspree Options -->
-            <input type="hidden" name="_subject" value="Neue Anfrage über besenlappe.de">
-            <input type="hidden" name="_replyto" value="%email%">
-            <input type="hidden" name="_captcha" value="false">
-
-            <button class="btn" type="submit">Anfrage senden</button>
-
-            <!-- ✅ بدائل دائمة (حتى لو Formspree تعطل) -->
-            <div class="fallback-row">
-              <a class="btn btn-outline"
-                 href="mailto:info@besenlappe.de?cc=tarekalkreidi@gmail.com&subject=Anfrage%20%C3%BCber%20besenlappe.de&body=Hallo%2C%0A%0AName%3A%20%0AE-Mail%3A%20%0A%0ANachricht%3A%0A%0A---%0AGesendet%20%C3%BCber%20besenlappe.de">
-                ✉️ E-Mail öffnen
-              </a>
-
-              <a class="btn btn-outline"
-                 href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen.%20Ort%3A%20____%20%7C%20Termin%3A%20____"
-                 target="_blank" rel="noopener">
-                💬 WhatsApp nutzen
-              </a>
+            <div class="section-cta">
+              <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20brauche%20eine%20Firmen%2FEvent-Reinigung.%20Ort%3A%20____%20%7C%20Termin%3A%20____">💬 WhatsApp</a>
+              <a class="btn btn-outline" href="#kontakt">📩 Formular</a>
             </div>
-          </form>
-
-          <p class="sub" style="margin-top:10px; font-size:13px; opacity:.75;">
-            Hinweis: Falls das Formular nicht sendet, können Sie per WhatsApp oder über E-Mail anfragen.
-          </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<a class="btn-whatsapp"
-   href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen.%20Ort%3A%20____%20%7C%20Termin%3A%20____"
-   target="_blank" rel="noopener" aria-label="WhatsApp Chat öffnen">
-  <span>💬</span>
-</a>
+    <!-- Privat -->
+    <section id="privat" class="strip">
+      <div class="container">
+        <h2>Für Privatkunden</h2>
+        <p class="sub">Berlin &amp; Brandenburg – sauber, pünktlich, unkompliziert.</p>
 
-<footer>
-  <div class="container">
-    <div><strong>BESEN & LAPPE Reinigungsservice</strong> · Berlin & Brandenburg</div>
-    <div style="margin-top:6px;">Telefon: +49 173 9089197 · Website: besenlappe.de</div>
-    <div style="margin-top:6px; opacity:.8;">© <span id="year"></span> Besen & Lappe</div>
+        <ul class="service-list">
+          <li class="service-item">
+            <div class="service-icon">🏠</div>
+            <div>
+              <h3>Wohnung & Haushalt</h3>
+              <p>Küche, Bad, Böden, Oberflächen – gründlich.</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <div class="service-icon">🪟</div>
+            <div>
+              <h3>Fenster & Glas</h3>
+              <p>Streifenfrei – innen/außen.</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <div class="service-icon">📦</div>
+            <div>
+              <h3>Umzug & Übergabe</h3>
+              <p>Sauber für Übergaben – ideal vor/nach Umzug.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="section-cta">
+          <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20brauche%20eine%20Privatreinigung.%20Ort%3A%20____%20%7C%20Termin%3A%20____">💬 WhatsApp</a>
+          <a class="btn btn-outline" href="#kontakt">📩 Kontakt</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ablauf (مختصر وبلا كروت كبيرة) -->
+    <section id="ablauf" class="strip">
+      <div class="container">
+        <h2>So läuft’s ab</h2>
+        <p class="sub">3 Schritte – fertig.</p>
+
+        <ul class="steps-clean">
+          <li class="step-row">
+            <div class="step-num">1</div>
+            <div>
+              <h4>Anfrage</h4>
+              <p>WhatsApp oder Formular: Art, Ort, Termin.</p>
+            </div>
+          </li>
+          <li class="step-row">
+            <div class="step-num">2</div>
+            <div>
+              <h4>Termin</h4>
+              <p>Wir bestätigen schnell und planen sauber.</p>
+            </div>
+          </li>
+          <li class="step-row">
+            <div class="step-num">3</div>
+            <div>
+              <h4>Reinigung</h4>
+              <p>Pünktlich, gründlich, ordentlich – fertig.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="section-cta">
+          <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20brauche%20eine%20Reinigung.%20Art%3A%20Firma%2FPrivat%2FEvent%20%7C%20Ort%3A%20____%20%7C%20Termin%3A%20____">💬 WhatsApp</a>
+          <a class="btn btn-outline" href="#kontakt">📩 Kontaktformular</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt (كما هو تقريبًا) -->
+    <section id="kontakt">
+      <div class="container">
+        <h2>Kontakt</h2>
+        <p class="sub">Antwort meist innerhalb weniger Stunden.</p>
+
+        <div style="display:grid;gap:16px;grid-template-columns:1fr;align-items:start">
+          <div class="trust-box">
+            <h3>Direkt</h3>
+            <p style="margin:10px 0 0;color:#eaf2ff">
+              📞 <a href="tel:+491739089197">+49 173 9089197</a><br/>
+              💬 <a href="https://wa.me/491739089197">WhatsApp Chat</a><br/>
+              ✉️ <a href="mailto:info@besenlappe.de">info@besenlappe.de</a>
+            </p>
+
+            <p class="sub" style="margin-top:10px">
+              Einsatzgebiet: Berlin &amp; Brandenburg (Privat) • Deutschlandweit (Firmen &amp; Events nach Projekt)
+            </p>
+          </div>
+
+          <div class="trust-box">
+            <h3>Kurznachricht</h3>
+
+            <form id="contactForm" action="https://formspree.io/f/mldwzbol" method="POST" style="margin-top:10px">
+              <input style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px"
+                     type="text" name="name" placeholder="Ihr Name" autocomplete="name" required>
+
+              <input style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px"
+                     type="email" name="email" placeholder="E-Mail" autocomplete="email" spellcheck="false" autocapitalize="off" required>
+
+              <textarea style="width:100%;padding:12px;border-radius:10px;border:1px solid #274061;background:#0b1a2f;color:#fff;margin-bottom:10px"
+                        name="message" rows="5"
+                        placeholder="Art (Firma / Privat / Event) – Ort – Termin"
+                        autocomplete="off"></textarea>
+
+              <input type="hidden" name="_subject" value="Neue Anfrage – Website">
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+
+              <button class="btn" type="submit">Absenden</button>
+              <p class="sub" id="formStatus" style="margin-top:8px;min-height:1.2em"></p>
+            </form>
+
+            <p class="sub" style="opacity:.8;margin-top:10px">
+              Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer Datenschutzerklärung zu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div>🧹 <b>BESEN &amp; LAPPE Reinigungsservice</b></div>
+        <div class="legal">
+          Privat: Berlin &amp; Brandenburg • Firmen &amp; Events: Deutschlandweit (nach Projekt)
+          | WhatsApp: +49 173 9089197
+          | E-Mail: info@besenlappe.de
+        </div>
+      </div>
+    </footer>
   </div>
-</footer>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <!-- الأدوات الطافية -->
+  <div class="floating-tools" aria-hidden="true">
+    <svg class="broom" viewBox="0 0 64 64" fill="none">
+      <rect x="29" y="6" width="6" height="34" rx="3" fill="#d1a370"/>
+      <rect x="26" y="38" width="12" height="4" rx="2" fill="#0e223b"/>
+      <path d="M16 44h32l-4 10H20l-4-10Z" fill="#25D366"/>
+      <path d="M22 44v10M26 44v10M30 44v10M34 44v10M38 44v10M42 44v10" stroke="#123357" stroke-width="1.2" opacity=".6"/>
+    </svg>
+    <svg class="cloth" viewBox="0 0 64 64" fill="none">
+      <rect x="10" y="14" width="44" height="34" rx="6" fill="#39a0ff" opacity=".95"/>
+      <path d="M12 24c8 6 32 6 40 0" stroke="#cde4ff" stroke-width="2" opacity=".65"/>
+      <path d="M12 32c8 6 32 6 40 0" stroke="#cde4ff" stroke-width="2" opacity=".45"/>
+    </svg>
+  </div>
 
+  <!-- WhatsApp Floating Button -->
+  <a class="whatsapp-float"
+     href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20ben%C3%B6tige%20eine%20Reinigung.%20Art%3A%20Firma%2FPrivat%2FEvent%20%7C%20Ort%3A%20____%20%7C%20Termin%3A%20____"
+     target="_blank" rel="noopener"
+     aria-label="WhatsApp Kontakt">
+    <svg viewBox="0 0 32 32" class="wa-icon" aria-hidden="true">
+      <path fill="currentColor" d="M19.11 17.38c-.27-.13-1.58-.78-1.82-.87-.24-.09-.42-.13-.6.13-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.13-1.12-.41-2.14-1.31-.79-.7-1.33-1.56-1.49-1.83-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.33-.02-.47-.07-.13-.6-1.45-.82-1.98-.22-.53-.44-.46-.6-.47h-.51c-.18 0-.47.07-.71.33-.24.27-.93.91-.93 2.22s.96 2.58 1.09 2.76c.13.18 1.88 2.87 4.56 4.02.64.28 1.14.45 1.53.58.64.2 1.22.17 1.68.1.51-.07 1.58-.64 1.8-1.25.22-.6.22-1.12.16-1.25-.07-.13-.24-.2-.51-.33z"/>
+      <path fill="currentColor" d="M26.73 5.27C23.86 2.4 20.05.82 16 .82 7.79.82 1.13 7.48 1.13 15.69c0 2.63.69 5.2 2 7.46L1 31.18l8.24-2.16c2.2 1.2 4.67 1.83 6.76 1.83h.01c8.2 0 14.86-6.66 14.86-14.86 0-4.05-1.58-7.86-4.45-10.72zm-10.73 23.1h-.01c-1.95 0-3.86-.52-5.53-1.49l-.4-.24-4.89 1.28 1.31-4.77-.26-.42a11.6 11.6 0 0 1-1.78-6.14C4.44 9.07 9.37 4.14 16 4.14c3.21 0 6.22 1.25 8.49 3.52a11.9 11.9 0 0 1 3.51 8.49c0 6.62-4.93 12.22-11.99 12.22z"/>
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+  (function(){
+    const bg = document.querySelector('.site-bg');
+    if(!bg) return;
+    const imgs = Array.from(bg.querySelectorAll('img'));
+    if(imgs.length <= 1) return;
+
+    const intervalMs = 6000;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let idx = 0, t = null;
+    const show = i => imgs.forEach((im,n)=>im.classList.toggle('active', n===i));
+    const next = () => { idx = (idx+1)%imgs.length; show(idx); };
+    const start = () => { stop(); if(prefersReduced) return; t=setInterval(next, intervalMs); };
+    const stop  = () => { if(t){clearInterval(t); t=null;} };
+
+    show(idx); start();
+    document.addEventListener('visibilitychange', ()=> document.hidden ? stop() : start(), {passive:true});
+  })();
+
+  (function(){
+    const form = document.getElementById('contactForm');
+    if(!form) return;
+    const statusEl = document.getElementById('formStatus');
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      statusEl.textContent = 'Senden...';
+
+      try{
+        const data = new FormData(form);
+        const resp = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (resp.ok) {
+          form.reset();
+          statusEl.textContent = 'Danke! Wir melden uns in Kürze.';
+        } else {
+          statusEl.textContent = 'Fehler beim Senden. Bitte versuchen Sie es erneut.';
+        }
+      } catch(err){
+        statusEl.textContent = 'Netzwerkfehler. Bitte später erneut versuchen.';
+      }
+    });
+  })();
+  </script>
 </body>
 </html>
