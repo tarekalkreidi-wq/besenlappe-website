@@ -260,27 +260,8 @@
     }
 
     /* =====================================================
-       ✅ WORK GALLERY (ADD-ON)  — إضافات فقط
+       ✅ FOTO-GALERIE (ADD-ON) — بدون تقسيمات / فقط شبكة + تكبير
     ====================================================== */
-    .gallery-wrap{display:grid;gap:16px;margin-top:6px}
-    .gallery-filters{
-      display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 4px;
-    }
-    .g-btn{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 12px;border-radius:999px;
-      border:1px solid rgba(30,51,80,.55);
-      background:rgba(10,22,38,.55);
-      color:#eaf2ff;font-weight:900;cursor:pointer;
-      transition:.15s ease; user-select:none;
-    }
-    .g-btn:hover{transform:translateY(-1px);background:rgba(10,22,38,.78)}
-    .g-btn.active{
-      background:rgba(37,211,102,.18);
-      border-color:rgba(37,211,102,.40);
-      color:#eafff4;
-    }
-
     .gallery-grid{
       display:grid;
       gap:12px;
@@ -308,6 +289,7 @@
       height:220px;
       object-fit:cover;
       display:block;
+      background:rgba(11,26,47,.35);
     }
     .g-cap{
       padding:10px 12px;
@@ -376,6 +358,10 @@
           <a href="#firmen">Firmen</a>
           <a href="#privat">Privat</a>
           <a href="#ablauf">Ablauf</a>
+
+          <!-- ✅ ADD-ON: Link zur Galerie -->
+          <a href="#fotos">Fotos</a>
+
           <a href="#kontakt" class="btn cta">Angebot anfordern</a>
         </nav>
       </div>
@@ -527,70 +513,51 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         ✅ WORK GALLERY (ADD-ON) — قسم صور مرتب
-         ضع صورك داخل images/ أو استخدم روابط مباشرة
-    ====================================================== -->
-    <section id="galerie" class="strip">
+    <!-- ✅ ADD-ON: Fotos (ohne Filter) -->
+    <section id="fotos" class="strip">
       <div class="container">
-        <h2>Unsere Arbeit – Galerie</h2>
-        <p class="sub">Tippen Sie على الصورة للتكبير. يمكنك فلترة الصور حسب النوع.</p>
+        <h2>Fotos unserer Arbeit</h2>
+        <p class="sub">Klicken Sie auf ein Foto, um es zu vergrößern.</p>
 
-        <div class="gallery-wrap">
-          <div class="gallery-filters" role="tablist" aria-label="Galerie Filter">
-            <button class="g-btn active" type="button" data-filter="all">Alle</button>
-            <button class="g-btn" type="button" data-filter="buero">Büro</button>
-            <button class="g-btn" type="button" data-filter="sanitaer">Sanitär</button>
-            <button class="g-btn" type="button" data-filter="glas">Glas</button>
-            <button class="g-btn" type="button" data-filter="event">Event</button>
-            <button class="g-btn" type="button" data-filter="privat">Privat</button>
-          </div>
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- ✅ ضع صورك هنا. غيّر فقط المسارات والعناوين -->
 
-          <div class="gallery-grid" id="galleryGrid">
-            <!-- ✅ غيّر الصور/العناوين/التصنيف بسهولة -->
+          <figure class="g-item" data-full="images/work-1.jpg" data-title="Büroreinigung">
+            <img src="images/work-1.jpg" alt="Büroreinigung" loading="lazy">
+            <figcaption class="g-cap">Büroreinigung</figcaption>
+          </figure>
 
-            <figure class="g-item" data-cat="buero" data-full="images/work-1.jpg" data-title="Büroreinigung – Arbeitsplätze">
-              <img src="images/work-1.jpg" alt="Büroreinigung – Arbeitsplätze" loading="lazy">
-              <figcaption class="g-cap">Büro – Arbeitsplätze</figcaption>
-            </figure>
+          <figure class="g-item" data-full="images/work-2.jpg" data-title="Sanitärreinigung">
+            <img src="images/work-2.jpg" alt="Sanitärreinigung" loading="lazy">
+            <figcaption class="g-cap">Sanitärreinigung</figcaption>
+          </figure>
 
-            <figure class="g-item" data-cat="sanitaer" data-full="images/work-2.jpg" data-title="Sanitär – gründlich & hygienisch">
-              <img src="images/work-2.jpg" alt="Sanitär – gründlich & hygienisch" loading="lazy">
-              <figcaption class="g-cap">Sanitär – hygienisch</figcaption>
-            </figure>
+          <figure class="g-item" data-full="images/work-3.jpg" data-title="Glasreinigung">
+            <img src="images/work-3.jpg" alt="Glasreinigung" loading="lazy">
+            <figcaption class="g-cap">Glasreinigung</figcaption>
+          </figure>
 
-            <figure class="g-item" data-cat="glas" data-full="images/work-3.jpg" data-title="Glasreinigung – streifenfrei">
-              <img src="images/work-3.jpg" alt="Glasreinigung – streifenfrei" loading="lazy">
-              <figcaption class="g-cap">Glas – streifenfrei</figcaption>
-            </figure>
+          <figure class="g-item" data-full="images/work-4.jpg" data-title="Eventreinigung">
+            <img src="images/work-4.jpg" alt="Eventreinigung" loading="lazy">
+            <figcaption class="g-cap">Eventreinigung</figcaption>
+          </figure>
 
-            <figure class="g-item" data-cat="event" data-full="images/work-4.jpg" data-title="Eventreinigung – Setup & Finish">
-              <img src="images/work-4.jpg" alt="Eventreinigung – Setup & Finish" loading="lazy">
-              <figcaption class="g-cap">Event – sauberer Eindruck</figcaption>
-            </figure>
+          <figure class="g-item" data-full="images/work-5.jpg" data-title="Privatreinigung">
+            <img src="images/work-5.jpg" alt="Privatreinigung" loading="lazy">
+            <figcaption class="g-cap">Privatreinigung</figcaption>
+          </figure>
 
-            <figure class="g-item" data-cat="privat" data-full="images/work-5.jpg" data-title="Privat – Wohnung / Küche">
-              <img src="images/work-5.jpg" alt="Privat – Wohnung / Küche" loading="lazy">
-              <figcaption class="g-cap">Privat – Wohnung</figcaption>
-            </figure>
+          <figure class="g-item" data-full="images/work-6.jpg" data-title="Büroreinigung – Meetingraum">
+            <img src="images/work-6.jpg" alt="Büroreinigung – Meetingraum" loading="lazy">
+            <figcaption class="g-cap">Büroreinigung – Meetingraum</figcaption>
+          </figure>
 
-            <figure class="g-item" data-cat="buero" data-full="images/work-6.jpg" data-title="Büro – Meetingraum">
-              <img src="images/work-6.jpg" alt="Büro – Meetingraum" loading="lazy">
-              <figcaption class="g-cap">Büro – Meetingraum</figcaption>
-            </figure>
-
-            <!-- ✅ انسخ/الصق نفس البلوك لزيادة الصور -->
-          </div>
-
-          <div class="section-cta">
-            <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen.%20Art%3A%20____%20%7C%20Ort%3A%20____%20%7C%20Termin%3A%20____">💬 WhatsApp</a>
-            <a class="btn btn-outline" href="#kontakt">📩 Kontakt</a>
-          </div>
+          <!-- ✅ كرر نفس البلوك لإضافة صور أكثر -->
         </div>
       </div>
     </section>
 
-    <!-- ✅ Lightbox (ADD-ON) -->
+    <!-- ✅ ADD-ON: Lightbox -->
     <div class="lb" id="lb" aria-hidden="true">
       <div class="lb-card" role="dialog" aria-modal="true" aria-label="Bildanzeige">
         <img id="lbImg" src="" alt="">
@@ -600,7 +567,6 @@
         </div>
       </div>
     </div>
-    <!-- ===================================================== -->
 
     <!-- Kontakt -->
     <section id="kontakt">
@@ -686,7 +652,7 @@
      aria-label="WhatsApp Kontakt">
     <svg viewBox="0 0 32 32" class="wa-icon" aria-hidden="true">
       <path fill="currentColor" d="M19.11 17.38c-.27-.13-1.58-.78-1.82-.87-.24-.09-.42-.13-.6.13-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.13-1.12-.41-2.14-1.31-.79-.7-1.33-1.56-1.49-1.83-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.33-.02-.47-.07-.13-.6-1.45-.82-1.98-.22-.53-.44-.46-.6-.47h-.51c-.18 0-.47.07-.71.33-.24.27-.93.91-.93 2.22s.96 2.58 1.09 2.76c.13.18 1.88 2.87 4.56 4.02.64.28 1.14.45 1.53.58.64.2 1.22.17 1.68.1.51-.07 1.58-.64 1.8-1.25.22-.6.22-1.12.16-1.25-.07-.13-.24-.2-.51-.33z"/>
-      <path fill="currentColor" d="M26.73 5.27C23.86 2.4 20.05.82 16 .82 7.79.82 1.13 7.48 1.13 15.69c0 2.63.69 5.2 2 7.46L1 31.18l8.24-2.16c2.2 1.2 4.67 1.83 6.76 1.83h.01c8.2 0 14.86-6.66 14.86-14.86 0-4.05-1.58-7.86-4.45-10.72zm-10.73 23.1h-.01c-1.95 0-3.86-.52-5.53-1.49l-.4-.24-4.89 1.28 1.31-4.77-.26-.42a11.6 11.6 0 0 1-1.78-6.14C4.44 9.07 9.37 4.14 16 4.14c3.21 0 6.22 1.25 8.49 3.52a11.9 11.9 0 0 1 3.51 8.49c0 6.62-4.93 12.22-11.99 12.22z"/>
+      <path fill="currentColor" d="M26.73 5.27C23.86 2.4 20.05 .82 16 .82 7.79 .82 1.13 7.48 1.13 15.69c0 2.63 .69 5.2 2 7.46L1 31.18l8.24-2.16c2.2 1.2 4.67 1.83 6.76 1.83h.01c8.2 0 14.86-6.66 14.86-14.86 0-4.05-1.58-7.86-4.45-10.72z"/>
     </svg>
   </a>
 
@@ -740,47 +706,19 @@
     });
   })();
 
-  /* =====================================================
-     ✅ WORK GALLERY (ADD-ON) — فلترة + تكبير (Lightbox)
-  ====================================================== */
+  /* ✅ ADD-ON: Galerie Lightbox */
   (function(){
     const grid = document.getElementById('galleryGrid');
     if(!grid) return;
 
-    const buttons = Array.from(document.querySelectorAll('.g-btn'));
-    const items = Array.from(grid.querySelectorAll('.g-item'));
-
-    function setActive(btn){
-      buttons.forEach(b=>b.classList.toggle('active', b===btn));
-    }
-
-    function filter(cat){
-      items.forEach(it=>{
-        const c = it.getAttribute('data-cat');
-        const show = (cat === 'all' || c === cat);
-        it.style.display = show ? '' : 'none';
-      });
-    }
-
-    buttons.forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const cat = btn.getAttribute('data-filter') || 'all';
-        setActive(btn);
-        filter(cat);
-      });
-    });
-
-    // Lightbox
     const lb = document.getElementById('lb');
     const lbImg = document.getElementById('lbImg');
     const lbTitle = document.getElementById('lbTitle');
     const lbClose = document.getElementById('lbClose');
 
-    if(!lb || !lbImg || !lbTitle || !lbClose) return;
-
     function openLB(src, title, alt){
       lbImg.src = src;
-      lbImg.alt = alt || title || 'Bild';
+      lbImg.alt = alt || title || 'Foto';
       lbTitle.textContent = title || '';
       lb.classList.add('active');
       lb.setAttribute('aria-hidden', 'false');
