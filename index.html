@@ -258,6 +258,102 @@
       .whatsapp-float{width:58px;height:58px;right:16px;bottom:16px;}
       .wa-icon{width:28px;height:28px}
     }
+
+    /* =====================================================
+       ✅ WORK GALLERY (ADD-ON)  — إضافات فقط
+    ====================================================== */
+    .gallery-wrap{display:grid;gap:16px;margin-top:6px}
+    .gallery-filters{
+      display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 4px;
+    }
+    .g-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(30,51,80,.55);
+      background:rgba(10,22,38,.55);
+      color:#eaf2ff;font-weight:900;cursor:pointer;
+      transition:.15s ease; user-select:none;
+    }
+    .g-btn:hover{transform:translateY(-1px);background:rgba(10,22,38,.78)}
+    .g-btn.active{
+      background:rgba(37,211,102,.18);
+      border-color:rgba(37,211,102,.40);
+      color:#eafff4;
+    }
+
+    .gallery-grid{
+      display:grid;
+      gap:12px;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+    @media(min-width:900px){
+      .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+    }
+
+    .g-item{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(30,51,80,.45);
+      background:rgba(10,22,38,.55);
+      backdrop-filter:blur(6px);
+      cursor:pointer;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .g-item:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 34px rgba(0,0,0,.28);
+    }
+    .g-item img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      display:block;
+    }
+    .g-cap{
+      padding:10px 12px;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.35;
+    }
+
+    /* Lightbox */
+    .lb{
+      position:fixed; inset:0; z-index:99999;
+      background:rgba(0,0,0,.72);
+      display:none; align-items:center; justify-content:center;
+      padding:18px;
+    }
+    .lb.active{display:flex}
+    .lb-card{
+      max-width:min(1100px, 96vw);
+      max-height:88vh;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(12,26,43,.88);
+      box-shadow:0 18px 60px rgba(0,0,0,.55);
+    }
+    .lb-card img{
+      width:100%;
+      height:auto;
+      max-height:78vh;
+      object-fit:contain;
+      display:block;
+      background:#0b1a2f;
+    }
+    .lb-bar{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:10px 12px; gap:12px; color:#eaf2ff;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    .lb-title{font-weight:900}
+    .lb-close{
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      color:#fff; padding:8px 10px;
+      border-radius:12px; cursor:pointer;
+    }
+    .lb-close:hover{background:rgba(255,255,255,.10)}
   </style>
 </head>
 
@@ -394,7 +490,7 @@
       </div>
     </section>
 
-    <!-- Ablauf (مختصر وبلا كروت كبيرة) -->
+    <!-- Ablauf -->
     <section id="ablauf" class="strip">
       <div class="container">
         <h2>So läuft’s ab</h2>
@@ -431,7 +527,82 @@
       </div>
     </section>
 
-    <!-- Kontakt (كما هو تقريبًا) -->
+    <!-- =====================================================
+         ✅ WORK GALLERY (ADD-ON) — قسم صور مرتب
+         ضع صورك داخل images/ أو استخدم روابط مباشرة
+    ====================================================== -->
+    <section id="galerie" class="strip">
+      <div class="container">
+        <h2>Unsere Arbeit – Galerie</h2>
+        <p class="sub">Tippen Sie على الصورة للتكبير. يمكنك فلترة الصور حسب النوع.</p>
+
+        <div class="gallery-wrap">
+          <div class="gallery-filters" role="tablist" aria-label="Galerie Filter">
+            <button class="g-btn active" type="button" data-filter="all">Alle</button>
+            <button class="g-btn" type="button" data-filter="buero">Büro</button>
+            <button class="g-btn" type="button" data-filter="sanitaer">Sanitär</button>
+            <button class="g-btn" type="button" data-filter="glas">Glas</button>
+            <button class="g-btn" type="button" data-filter="event">Event</button>
+            <button class="g-btn" type="button" data-filter="privat">Privat</button>
+          </div>
+
+          <div class="gallery-grid" id="galleryGrid">
+            <!-- ✅ غيّر الصور/العناوين/التصنيف بسهولة -->
+
+            <figure class="g-item" data-cat="buero" data-full="images/work-1.jpg" data-title="Büroreinigung – Arbeitsplätze">
+              <img src="images/work-1.jpg" alt="Büroreinigung – Arbeitsplätze" loading="lazy">
+              <figcaption class="g-cap">Büro – Arbeitsplätze</figcaption>
+            </figure>
+
+            <figure class="g-item" data-cat="sanitaer" data-full="images/work-2.jpg" data-title="Sanitär – gründlich & hygienisch">
+              <img src="images/work-2.jpg" alt="Sanitär – gründlich & hygienisch" loading="lazy">
+              <figcaption class="g-cap">Sanitär – hygienisch</figcaption>
+            </figure>
+
+            <figure class="g-item" data-cat="glas" data-full="images/work-3.jpg" data-title="Glasreinigung – streifenfrei">
+              <img src="images/work-3.jpg" alt="Glasreinigung – streifenfrei" loading="lazy">
+              <figcaption class="g-cap">Glas – streifenfrei</figcaption>
+            </figure>
+
+            <figure class="g-item" data-cat="event" data-full="images/work-4.jpg" data-title="Eventreinigung – Setup & Finish">
+              <img src="images/work-4.jpg" alt="Eventreinigung – Setup & Finish" loading="lazy">
+              <figcaption class="g-cap">Event – sauberer Eindruck</figcaption>
+            </figure>
+
+            <figure class="g-item" data-cat="privat" data-full="images/work-5.jpg" data-title="Privat – Wohnung / Küche">
+              <img src="images/work-5.jpg" alt="Privat – Wohnung / Küche" loading="lazy">
+              <figcaption class="g-cap">Privat – Wohnung</figcaption>
+            </figure>
+
+            <figure class="g-item" data-cat="buero" data-full="images/work-6.jpg" data-title="Büro – Meetingraum">
+              <img src="images/work-6.jpg" alt="Büro – Meetingraum" loading="lazy">
+              <figcaption class="g-cap">Büro – Meetingraum</figcaption>
+            </figure>
+
+            <!-- ✅ انسخ/الصق نفس البلوك لزيادة الصور -->
+          </div>
+
+          <div class="section-cta">
+            <a class="btn" href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen.%20Art%3A%20____%20%7C%20Ort%3A%20____%20%7C%20Termin%3A%20____">💬 WhatsApp</a>
+            <a class="btn btn-outline" href="#kontakt">📩 Kontakt</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Lightbox (ADD-ON) -->
+    <div class="lb" id="lb" aria-hidden="true">
+      <div class="lb-card" role="dialog" aria-modal="true" aria-label="Bildanzeige">
+        <img id="lbImg" src="" alt="">
+        <div class="lb-bar">
+          <div class="lb-title" id="lbTitle"></div>
+          <button class="lb-close" id="lbClose" type="button">✕ Schließen</button>
+        </div>
+      </div>
+    </div>
+    <!-- ===================================================== -->
+
+    <!-- Kontakt -->
     <section id="kontakt">
       <div class="container">
         <h2>Kontakt</h2>
@@ -567,6 +738,71 @@
         statusEl.textContent = 'Netzwerkfehler. Bitte später erneut versuchen.';
       }
     });
+  })();
+
+  /* =====================================================
+     ✅ WORK GALLERY (ADD-ON) — فلترة + تكبير (Lightbox)
+  ====================================================== */
+  (function(){
+    const grid = document.getElementById('galleryGrid');
+    if(!grid) return;
+
+    const buttons = Array.from(document.querySelectorAll('.g-btn'));
+    const items = Array.from(grid.querySelectorAll('.g-item'));
+
+    function setActive(btn){
+      buttons.forEach(b=>b.classList.toggle('active', b===btn));
+    }
+
+    function filter(cat){
+      items.forEach(it=>{
+        const c = it.getAttribute('data-cat');
+        const show = (cat === 'all' || c === cat);
+        it.style.display = show ? '' : 'none';
+      });
+    }
+
+    buttons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const cat = btn.getAttribute('data-filter') || 'all';
+        setActive(btn);
+        filter(cat);
+      });
+    });
+
+    // Lightbox
+    const lb = document.getElementById('lb');
+    const lbImg = document.getElementById('lbImg');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbClose = document.getElementById('lbClose');
+
+    if(!lb || !lbImg || !lbTitle || !lbClose) return;
+
+    function openLB(src, title, alt){
+      lbImg.src = src;
+      lbImg.alt = alt || title || 'Bild';
+      lbTitle.textContent = title || '';
+      lb.classList.add('active');
+      lb.setAttribute('aria-hidden', 'false');
+    }
+    function closeLB(){
+      lb.classList.remove('active');
+      lb.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+    }
+
+    grid.addEventListener('click', (e)=>{
+      const item = e.target.closest('.g-item');
+      if(!item) return;
+      const full = item.getAttribute('data-full') || item.querySelector('img')?.src;
+      const title = item.getAttribute('data-title') || '';
+      const alt = item.querySelector('img')?.alt || title;
+      if(full) openLB(full, title, alt);
+    });
+
+    lbClose.addEventListener('click', closeLB);
+    lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLB(); });
   })();
   </script>
 </body>
