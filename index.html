@@ -79,7 +79,6 @@
     a{color:inherit;text-decoration:none}
     .container{width:min(1100px, calc(100% - 32px)); margin:0 auto}
 
-    /* Header / Nav */
     header{
       position:sticky; top:0; z-index:20;
       backdrop-filter: blur(10px);
@@ -110,7 +109,6 @@
       color: var(--text);
     }
 
-    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
@@ -150,17 +148,13 @@
       50%{box-shadow:0 0 26px rgba(37,211,102,.65)}
     }
 
-    /* Sections */
     section{padding:40px 0}
     .strip{padding:44px 0}
     h1,h2{margin:0 0 10px}
     p{margin:10px 0}
     .sub{color:var(--muted); line-height:1.6}
 
-    /* Hero */
-    .hero{
-      padding:52px 0 30px;
-    }
+    .hero{padding:52px 0 30px;}
     .hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -208,11 +202,7 @@
       opacity:.92;
     }
 
-    /* Cards & grids */
-    .grid{
-      display:grid;
-      gap:14px;
-    }
+    .grid{display:grid; gap:14px;}
     .grid-3{grid-template-columns:repeat(3, minmax(0, 1fr))}
     .card{
       background: var(--card);
@@ -224,7 +214,6 @@
     .card h3{margin:0 0 8px}
     .card ul{margin:10px 0 0; padding-left:18px; color: var(--muted); line-height:1.6}
 
-    /* Contact */
     .contact-box{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -262,6 +251,10 @@
       color: rgba(255,225,225,.95);
     }
 
+    /* ✅ زر الإيميل يظهر فقط عند الفشل */
+    .fallback-row{display:none; gap:10px; flex-wrap:wrap; margin-top:8px;}
+    .fallback-row a.btn{white-space:nowrap;}
+
     footer{
       padding:30px 0;
       border-top:1px solid rgba(255,255,255,.10);
@@ -269,7 +262,6 @@
       font-size: 14px;
     }
 
-    /* ===== MOBILE ===== */
     @media(max-width: 900px){
       .hero-grid{grid-template-columns:1fr}
       .hero-media{min-height:260px}
@@ -293,12 +285,7 @@
       position: relative;
       overflow: hidden;
     }
-
-    .promo-clean__inner > *{
-      position: relative;
-      z-index: 1;
-    }
-
+    .promo-clean__inner > *{position: relative; z-index: 1;}
     .promo-clean__tag{
       display:inline-block;
       padding:6px 12px;
@@ -346,8 +333,6 @@
       .promo-clean__cta{flex-direction:column;}
       .promo-clean__cta .btn{width:100%;justify-content:center;}
     }
-
-    /* Highlight Border + Shine */
     .promo-clean__inner::before{
       content:"";
       position:absolute;
@@ -366,7 +351,6 @@
       opacity: .85;
       z-index: 0;
     }
-
     .promo-clean__inner::after{
       content:"";
       position:absolute;
@@ -385,21 +369,16 @@
       opacity:.9;
       z-index: 0;
     }
-
     @keyframes offerShine{
       0%{ transform: translateX(-40%) rotate(18deg); opacity:.2; }
       45%{ opacity:.9; }
       100%{ transform: translateX(220%) rotate(18deg); opacity:.2; }
     }
-
-    .promo-clean{
-      animation: offerPulse 3.2s ease-in-out infinite;
-    }
+    .promo-clean{animation: offerPulse 3.2s ease-in-out infinite;}
     @keyframes offerPulse{
       0%,100%{ transform: translateY(0); }
       50%{ transform: translateY(-2px); }
     }
-
     .promo-clean__ribbon{
       position:absolute;
       top:14px;
@@ -468,7 +447,6 @@
     </div>
   </section>
 
-  <!-- Angebot (ohne Countdown) -->
   <section class="promo-clean" aria-label="Aktionsangebot">
     <div class="promo-clean__inner container">
       <div class="promo-clean__ribbon">ANGEBOT</div>
@@ -574,7 +552,6 @@
 
           <p class="sub" style="margin-top:10px;">Telefon: +49 173 9089197</p>
 
-          <!-- ✅ Emails for trust -->
           <p class="sub" style="margin-top:8px;">
             E-Mail:
             <a href="mailto:info@besenlappe.de">info@besenlappe.de</a> ·
@@ -585,17 +562,31 @@
         <div class="card">
           <h3>Kontaktformular</h3>
 
-          <!-- ✅ Formspree Endpoint stays here -->
+          <!-- ✅ Formspree Endpoint -->
           <form id="contactForm" action="https://formspree.io/f/xqazqgnd" method="POST">
             <input type="text" name="name" placeholder="Ihr Name" required>
             <input type="email" name="email" placeholder="Ihre E-Mail" required>
             <textarea name="message" placeholder="Ihre Nachricht (Ort, Datum, Art der Reinigung)..." required></textarea>
             <button class="btn" type="submit" id="sendBtn">Anfrage senden</button>
+
+            <!-- ✅ حالة الإرسال -->
             <div class="form-status" id="formStatus"></div>
+
+            <!-- ✅ بديل الإيميل: يظهر عند الفشل (لا نعتمد على فتح تلقائي) -->
+            <div class="fallback-row" id="fallbackRow">
+              <a class="btn btn-outline" id="emailFallbackBtn" href="#" rel="noopener">
+                ✉️ E-Mail öffnen
+              </a>
+              <a class="btn btn-outline"
+                 href="https://wa.me/491739089197?text=Hallo%20BESEN%20%26%20LAPPE%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen.%20Ort%3A%20____%20%7C%20Termin%3A%20____"
+                 target="_blank" rel="noopener">
+                💬 WhatsApp nutzen
+              </a>
+            </div>
           </form>
 
           <p class="sub" style="margin-top:10px; font-size:13px; opacity:.75;">
-            Hinweis: Falls das Formular nicht sendet, wird automatisch eine E-Mail geöffnet (als Alternative).
+            Hinweis: Falls das Formular nicht sendet, können Sie per WhatsApp oder über den E-Mail-Button anfragen.
           </p>
         </div>
       </div>
@@ -618,19 +609,30 @@
 </footer>
 
 <script>
+  // ✅ سنة الفوتر
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 <script>
-  // ✅ Submit: Try Formspree first, if fails -> open email to (your email + company email)
+  /**
+   * ✅ Kontaktformular:
+   * - يحاول يرسل على Formspree عن طريق fetch (بدون ريفريش للصفحة)
+   * - إذا فشل: نظهر زر "E-Mail öffnen" (المستخدم يضغطه بنفسه)
+   *
+   * ملاحظة: فتح mailto تلقائيًا بعد fetch ممكن ينمنع في بعض المتصفحات
+   * لذلك عملنا زر ضغط مباشر (أضمن).
+   */
   (function(){
     const form = document.getElementById("contactForm");
     const statusEl = document.getElementById("formStatus");
     const btn = document.getElementById("sendBtn");
 
-    // ✅ ضع هنا ايميلك وايميل الشركة
-    const OWNER_EMAIL = "tarekalkreidi@gmail.com";
-    const COMPANY_EMAIL = "info@besenlappe.de";
+    const fallbackRow = document.getElementById("fallbackRow");
+    const emailFallbackBtn = document.getElementById("emailFallbackBtn");
+
+    // ✅ الإيميلات
+    const COMPANY_EMAIL = "info@besenlappe.de";      // الشركة
+    const OWNER_EMAIL   = "tarekalkreidi@gmail.com"; // إيميلك
 
     if(!form) return;
 
@@ -640,7 +642,8 @@
       statusEl.textContent = msg;
     }
 
-    function mailtoFallback(dataObj){
+    // ✅ نبني رابط mailto بشكل متوافق (To + CC)
+    function buildMailto(dataObj){
       const subject = "Anfrage über besenlappe.de";
       const body =
 `Name: ${dataObj.name || ""}
@@ -652,13 +655,28 @@ ${dataObj.message || ""}
 —
 Gesendet über besenlappe.de`;
 
-      const to = encodeURIComponent(`${OWNER_EMAIL},${COMPANY_EMAIL}`);
-      const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
+      // to = الشركة، cc = إيميلك (أفضل من فاصلة , لأن بعض البرامج لا تدعمها)
+      const mailto =
+        `mailto:${encodeURIComponent(COMPANY_EMAIL)}` +
+        `?cc=${encodeURIComponent(OWNER_EMAIL)}` +
+        `&subject=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
+
+      return mailto;
+    }
+
+    function showFallback(mailtoLink){
+      // ✅ إظهار صف الأزرار
+      fallbackRow.style.display = "flex";
+      // ✅ وضع الرابط داخل زر الإيميل
+      emailFallbackBtn.href = mailtoLink;
     }
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // نخفي البديل كل مرة
+      fallbackRow.style.display = "none";
 
       const data = new FormData(form);
       const dataObj = {
@@ -667,10 +685,13 @@ Gesendet über besenlappe.de`;
         message: (data.get("message") || "").toString()
       };
 
+      const mailtoLink = buildMailto(dataObj);
+
       setStatus("", "Senden... bitte warten.");
       btn.disabled = true;
 
       try{
+        // ✅ إرسال لـ Formspree
         const res = await fetch(form.action, {
           method: "POST",
           body: data,
@@ -681,14 +702,14 @@ Gesendet über besenlappe.de`;
           setStatus("ok", "✅ Vielen Dank! Ihre Anfrage wurde gesendet. Wir melden uns schnell zurück.");
           form.reset();
         } else {
-          // ❌ Formspree rejected -> fallback to email
-          setStatus("err", "⚠️ Formular konnte nicht senden. Wir öffnen jetzt E-Mail als Alternative...");
-          setTimeout(() => mailtoFallback(dataObj), 600);
+          // ❌ Formspree رفض
+          setStatus("err", "❌ Leider konnte die Anfrage nicht gesendet werden. Bitte nutzen Sie WhatsApp oder öffnen Sie die E-Mail.");
+          showFallback(mailtoLink);
         }
       }catch(err){
-        // ❌ network / blocked -> fallback to email
-        setStatus("err", "⚠️ Netzwerkproblem. Wir öffnen jetzt E-Mail als Alternative...");
-        setTimeout(() => mailtoFallback(dataObj), 600);
+        // ❌ مشكلة شبكة / بلوك
+        setStatus("err", "❌ Netzwerkproblem. Bitte nutzen Sie WhatsApp oder öffnen Sie die E-Mail.");
+        showFallback(mailtoLink);
       }finally{
         btn.disabled = false;
       }
