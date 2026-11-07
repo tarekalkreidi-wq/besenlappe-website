@@ -1,4 +1,4 @@
-# robots.txt for besenlappe.de
+# robots.txt
 # Optimized for SEO
 
 User-agent: *
@@ -14,4 +14,4 @@ Disallow: /*.zip$
 Disallow: /*.rar$
 
 # Sitemap - مهم جداً للـ SEO
-Sitemap: https://besenlappe.de/sitemap.xml
+Sitemap: https://tarekalkreidi-wq.github.io/besenlappe-website/sitemap.xml
