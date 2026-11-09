@@ -14,4 +14,4 @@ Disallow: /*.zip$
 Disallow: /*.rar$
 
 # Sitemap - مهم جداً للـ SEO
-Sitemap: https://tarekalkreidi-wq.github.io/besenlappe-website/sitemap.xml
+Sitemap: https://besenlappe.de/sitemap.xml
